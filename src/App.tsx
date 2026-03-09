@@ -4,8 +4,13 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import CareerFlightGame from './components/CareerFlightGame'
 import { identity, philosophy, projects, skillHighlights, skills, stats, timeline } from './data/portfolio'
+import type { PatchAction } from '../ai-ui-agent/types/patchTypes'
+import { scanDOM } from '../ai-ui-agent/frontend/domScanner'
+import { executePatch } from '../ai-ui-agent/frontend/patchEngine'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -28,10 +33,111 @@ function App() {
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
+  // RAG AI Assistant state (chat about CV/portfolio)
+  const [chatPrompt, setChatPrompt] = useState('')
+  const [chatLoading, setChatLoading] = useState(false)
+  const [chatMessages, setChatMessages] = useState<Array<{ role: 'user' | 'ai'; text: string }>>([])
+  const chatMessagesEndRef = useRef<HTMLDivElement>(null)
+
+  // UI Agent state (DOM modifications)
+  const [uiAgentOpen, setUiAgentOpen] = useState(false)
+  const [aiPrompt, setAiPrompt] = useState('')
+  const [aiLoading, setAiLoading] = useState(false)
+  const [aiMessages, setAiMessages] = useState<Array<{ role: 'user' | 'ai'; text: string }>>([])
+  const aiMessagesEndRef = useRef<HTMLDivElement>(null)
+
   const appRef = useRef<HTMLDivElement>(null)
   const cursorDotRef = useRef<HTMLDivElement>(null)
   const cursorRingRef = useRef<HTMLDivElement>(null)
   const loadingBarRef = useRef<HTMLDivElement>(null)
+
+  // RAG Chat handler — answers questions about Soujanya
+  const handleChatSend = useCallback(async () => {
+    const msg = chatPrompt.trim()
+    if (!msg || chatLoading) return
+
+    setChatMessages((prev) => [...prev, { role: 'user', text: msg }])
+    setChatPrompt('')
+    setChatLoading(true)
+
+    try {
+      const res = await fetch('http://localhost:8788/api/ai-assistant/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, history: chatMessages }),
+      })
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}))
+        throw new Error((err as { error?: string }).error || `Server error ${res.status}`)
+      }
+
+      const data = (await res.json()) as { reply: string }
+      setChatMessages((prev) => [...prev, { role: 'ai', text: data.reply }])
+    } catch (err) {
+      setChatMessages((prev) => [
+        ...prev,
+        { role: 'ai', text: `Error: ${err instanceof Error ? err.message : 'Something went wrong'}` },
+      ])
+    } finally {
+      setChatLoading(false)
+    }
+  }, [chatPrompt, chatLoading, chatMessages])
+
+  // UI Agent handler — modifies the DOM
+  const handleAiSend = useCallback(async () => {
+    const prompt = aiPrompt.trim()
+    if (!prompt || aiLoading) return
+
+    setAiMessages((prev) => [...prev, { role: 'user', text: prompt }])
+    setAiPrompt('')
+    setAiLoading(true)
+
+    try {
+      const domStructure = scanDOM()
+      const res = await fetch('http://localhost:8788/api/ai-ui-agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, domStructure }),
+      })
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}))
+        throw new Error((err as { error?: string }).error || `Server error ${res.status}`)
+      }
+
+      const data = (await res.json()) as { actions: PatchAction[] }
+      const result = executePatch(data.actions)
+
+      setAiMessages((prev) => [
+        ...prev,
+        {
+          role: 'ai',
+          text: result.applied > 0
+            ? `Applied ${result.applied} change${result.applied > 1 ? 's' : ''}. Refresh to reset.`
+            : result.errors.length > 0
+              ? `Could not apply: ${result.errors[0]}`
+              : 'No matching elements found.',
+        },
+      ])
+    } catch (err) {
+      setAiMessages((prev) => [
+        ...prev,
+        { role: 'ai', text: `Error: ${err instanceof Error ? err.message : 'Something went wrong'}` },
+      ])
+    } finally {
+      setAiLoading(false)
+    }
+  }, [aiPrompt, aiLoading])
+
+  // Auto-scroll messages
+  useEffect(() => {
+    chatMessagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [chatMessages])
+
+  useEffect(() => {
+    aiMessagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }, [aiMessages])
 
   const commandItems = useMemo(
     () => [
@@ -293,6 +399,7 @@ function App() {
       if (e.key === 'Escape') {
         setPaletteOpen(false)
         setTerminalOpen(false)
+        setUiAgentOpen(false)
       }
     }
 
@@ -388,9 +495,18 @@ function App() {
             className="btn"
             onMouseMove={handleMagnetic}
             onMouseLeave={handleMagneticLeave}
-            onClick={() => setTerminalOpen((p) => !p)}
+            onClick={() => { setTerminalOpen((p) => !p); setUiAgentOpen(false) }}
           >
-            Console
+            AI Assistant
+          </button>
+          <button
+            type="button"
+            className="btn btn-ui-agent"
+            onMouseMove={handleMagnetic}
+            onMouseLeave={handleMagneticLeave}
+            onClick={() => { setUiAgentOpen((p) => !p); setTerminalOpen(false) }}
+          >
+            UI Agent
           </button>
         </div>
       </header>
@@ -882,6 +998,7 @@ function App() {
         Designed as a cinematic developer universe · {identity.name}
       </footer>
 
+      {/* RAG AI Assistant — answers questions about Soujanya */}
       <AnimatePresence>
         {terminalOpen && (
           <motion.aside
@@ -890,15 +1007,181 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
           >
-            <h3>AI Portfolio Assistant</h3>
-            <p>Try: &quot;Show AI projects&quot;, &quot;Jump to contact&quot;, or &quot;What stack do you use?&quot;</p>
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => goTo('projects')}
-            >
-              Open Project Showcase
-            </button>
+            <div className="ai-header">
+              <div className="ai-header-left">
+                <span className="ai-status-dot" />
+                <h3>AI Assistant</h3>
+              </div>
+              <button
+                type="button"
+                className="ai-close-btn"
+                onClick={() => setTerminalOpen(false)}
+                aria-label="Close AI Assistant"
+              >
+                &times;
+              </button>
+            </div>
+
+            <div className="ai-messages">
+              {chatMessages.length === 0 && (
+                <div className="ai-welcome">
+                  <p className="ai-welcome-title">Ask me anything about Soujanya</p>
+                  <p className="ai-welcome-hint">Try questions like:</p>
+                  <div className="ai-suggestions">
+                    {['What are your skills?', 'Tell me about your projects', 'What is your experience?', 'How can I contact you?'].map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        className="ai-suggestion-chip"
+                        onClick={() => { setChatPrompt(s); }}
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {chatMessages.map((msg, i) => (
+                <div key={i} className={`ai-msg ai-msg-${msg.role}`}>
+                  <span className="ai-msg-label">{msg.role === 'user' ? 'You' : 'AI'}</span>
+                  {msg.role === 'ai' ? (
+                    <div className="ai-msg-text ai-markdown">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.text}</ReactMarkdown>
+                    </div>
+                  ) : (
+                    <span className="ai-msg-text">{msg.text}</span>
+                  )}
+                </div>
+              ))}
+              {chatLoading && (
+                <div className="ai-msg ai-msg-ai">
+                  <span className="ai-msg-label">AI</span>
+                  <span className="ai-msg-text ai-typing">
+                    <span className="ai-dot" />
+                    <span className="ai-dot" />
+                    <span className="ai-dot" />
+                  </span>
+                </div>
+              )}
+              <div ref={chatMessagesEndRef} />
+            </div>
+
+            <div className="ai-input-row">
+              <input
+                type="text"
+                className="ai-input"
+                placeholder="Ask about skills, projects, experience..."
+                value={chatPrompt}
+                onChange={(e) => setChatPrompt(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Enter') handleChatSend() }}
+                disabled={chatLoading}
+                autoComplete="off"
+              />
+              <button
+                type="button"
+                className="ai-send-btn"
+                onClick={handleChatSend}
+                disabled={chatLoading || !chatPrompt.trim()}
+              >
+                {chatLoading ? '...' : '→'}
+              </button>
+            </div>
+
+            <p className="ai-footer-hint">Powered by RAG · Ask anything about my portfolio</p>
+          </motion.aside>
+        )}
+      </AnimatePresence>
+
+      {/* UI Agent — modifies the DOM temporarily */}
+      <AnimatePresence>
+        {uiAgentOpen && (
+          <motion.aside
+            className="assistant-drawer ui-agent-drawer glass"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+          >
+            <div className="ai-header ui-agent-header">
+              <div className="ai-header-left">
+                <span className="ai-status-dot ui-agent-dot" />
+                <h3>UI Agent</h3>
+              </div>
+              <button
+                type="button"
+                className="ai-close-btn"
+                onClick={() => setUiAgentOpen(false)}
+                aria-label="Close UI Agent"
+              >
+                &times;
+              </button>
+            </div>
+
+            <div className="ai-messages">
+              {aiMessages.length === 0 && (
+                <div className="ai-welcome">
+                  <p className="ai-welcome-title">What would you like to change?</p>
+                  <p className="ai-welcome-hint">Try prompts like:</p>
+                  <div className="ai-suggestions">
+                    {['Make the navbar dark', 'Hide the 3D hero animation', 'Increase hero padding', 'Make all section titles red'].map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        className="ai-suggestion-chip"
+                        onClick={() => { setAiPrompt(s); }}
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {aiMessages.map((msg, i) => (
+                <div key={i} className={`ai-msg ai-msg-${msg.role}`}>
+                  <span className="ai-msg-label">{msg.role === 'user' ? 'You' : 'AI'}</span>
+                  {msg.role === 'ai' ? (
+                    <div className="ai-msg-text ai-markdown">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.text}</ReactMarkdown>
+                    </div>
+                  ) : (
+                    <span className="ai-msg-text">{msg.text}</span>
+                  )}
+                </div>
+              ))}
+              {aiLoading && (
+                <div className="ai-msg ai-msg-ai">
+                  <span className="ai-msg-label">AI</span>
+                  <span className="ai-msg-text ai-typing">
+                    <span className="ai-dot" />
+                    <span className="ai-dot" />
+                    <span className="ai-dot" />
+                  </span>
+                </div>
+              )}
+              <div ref={aiMessagesEndRef} />
+            </div>
+
+            <div className="ai-input-row">
+              <input
+                type="text"
+                className="ai-input"
+                placeholder="Describe a UI change..."
+                value={aiPrompt}
+                onChange={(e) => setAiPrompt(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Enter') handleAiSend() }}
+                disabled={aiLoading}
+                autoComplete="off"
+              />
+              <button
+                type="button"
+                className="ai-send-btn"
+                onClick={handleAiSend}
+                disabled={aiLoading || !aiPrompt.trim()}
+              >
+                {aiLoading ? '...' : '→'}
+              </button>
+            </div>
+
+            <p className="ai-footer-hint">Changes are temporary. Refresh to reset.</p>
           </motion.aside>
         )}
       </AnimatePresence>
