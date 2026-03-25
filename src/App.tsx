@@ -61,7 +61,7 @@ function App() {
     setChatLoading(true)
 
     try {
-      const res = await fetch('http://localhost:8788/api/ai-assistant/chat', {
+      const res = await fetch('/api/ai-assistant/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: msg, history: chatMessages }),
@@ -95,7 +95,7 @@ function App() {
 
     try {
       const domStructure = scanDOM()
-      const res = await fetch('http://localhost:8788/api/ai-ui-agent', {
+      const res = await fetch('/api/ai-ui-agent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt, domStructure }),

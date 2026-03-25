@@ -1,4 +1,3 @@
-import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import router from "./routes.js";
@@ -11,7 +10,6 @@ const PORT = parseInt(process.env.AGUI_PORT || process.env.PORT || "8788", 10);
 
 // ── Middleware ───────────────────────────────────────────────────────
 
-app.use(cors({ origin: true }));
 app.use(express.json({ limit: "50kb" }));
 
 // ── Routes ──────────────────────────────────────────────────────────
