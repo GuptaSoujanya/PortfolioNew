@@ -1,4 +1,3 @@
-import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import router from "./routes.js";
@@ -11,20 +10,6 @@ const PORT = parseInt(process.env.AGUI_PORT || process.env.PORT || "8788", 10);
 
 // ── Middleware ───────────────────────────────────────────────────────
 
-// Allow local dev origins (Vite default 5173, etc.) and reflect others for production
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "http://127.0.0.1:5173",
-      "http://localhost:3000",
-      "http://127.0.0.1:3000",
-    ],
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
-    credentials: false,
-  })
-);
 app.use(express.json({ limit: "50kb" }));
 
 // ── Routes ──────────────────────────────────────────────────────────
