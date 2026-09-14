@@ -1,6 +1,6 @@
 /* A typographic studio poster, with project sketches as its working material. */
-:root { --orange: #ff7952; --lime: #dafb8d; }
-.site-header { height: 84px; max-width: 1600px; padding-inline: 5%; color: #25241f; }
+:root { --orange: #ff7952; --lime: #dafb8d; --hero-gutter: max(5%, calc((100% - 1440px) / 2)); }
+.site-header { height: 84px; max-width: none; padding-inline: var(--hero-gutter); color: #25241f; }
 .site-header .wordmark .pencil-mark { color: #25241f; }
 .brand-caption { font-size: 9px; color: #697064; }
 .desktop-nav { font-size: 13px; gap: 32px; }
@@ -10,7 +10,8 @@
 .site-header .contact-nav .kinetic-nav-next { color: #f3f1e7; }
 .contact-nav { font-size: 13px; min-height: 46px; background: #25241f; color: #f5f2e7; border: 0; gap: 28px; border-radius: 2px; }
 .contact-nav:hover { color: #fffaf0; background: #bc3d24; }
-.hero { --hero-paper: #f5f2eb; --hero-ink: #25241f; --hero-accent: #ce4527; --hero-gutter: 5%; padding: 86px var(--hero-gutter) 18px; max-width: 1600px; min-height: 0; background: var(--hero-paper); color: var(--hero-ink); isolation: isolate; }
+/* Paint the full viewport; constrain the content with shared header/hero gutters. */
+.hero { --hero-paper: #f5f2eb; --hero-ink: #25241f; --hero-accent: #ce4527; padding: 86px var(--hero-gutter) 18px; max-width: none; min-height: 0; background: var(--hero-paper); color: var(--hero-ink); isolation: isolate; }
 .hero:before { background: linear-gradient(110deg,#fffdf740,transparent 65%); }
 .hero:after { display: none; }
 .hero-topline { border-top: 1px solid #25241f40; padding: 15px 0 12px; align-items: center; }
