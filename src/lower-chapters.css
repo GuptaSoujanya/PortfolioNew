@@ -1,0 +1,397 @@
+/* Four different exhibitions, connected by type, materials and small marks. */
+.lower-curated { position: relative; isolation: isolate; }
+.lower-curated > .chapter-label { position: relative; z-index: 2; font-size: 11px; letter-spacing: 1.1px; padding-block: 26px; }
+.lower-curated > .chapter-label > span:nth-child(2) { font-size: 10px; opacity: .75; }
+.lower-curated .chapter-label .label-cross { font-size: 32px; }
+
+/* The human: a printed identity, floating inside an oversized type orbit. */
+.human-chapter.lower-curated { background: #242126; padding-top: 60px; padding-bottom: 80px; }
+.human-background-word { position: absolute; z-index: -1; top: 107px; left: 44%; font: 400 30vw/.85 var(--display); letter-spacing: -.045em; color: transparent; -webkit-text-stroke: 1px #c8bce616; pointer-events: none; }
+.lower-curated .human-layout { grid-template-columns: 1.05fr 1fr; gap: clamp(30px,5vw,88px); padding: 82px 0 78px; }
+.lower-curated .human-pretitle { color: #c9bdcc; font-size: 10px; letter-spacing: 1.6px; margin-bottom: 30px; }
+.lower-curated .human-pretitle::before { content: ''; display: inline-block; width: 20px; height: 1px; background: #ff8963; margin: 0 13px 3px 0; }
+.chapters .lower-curated .about-statement { font: 400 clamp(60px,6.6vw,103px)/1.02 var(--display); letter-spacing: -2px; text-transform: uppercase; position: relative; z-index: 2; }
+.chapters .lower-curated .about-statement em { display: block; font-family: var(--serif); font-size: 1.04em; line-height: .94; letter-spacing: -.055em; text-transform: none; white-space: nowrap; margin-top: 10px; }
+.chapters .lower-curated .about-statement br { display: none; }
+.lower-curated .human-copy > p { max-width: 480px; font-size: 16px; line-height: 1.8; color: #c8c0ca; margin-top: 32px; }
+.lower-curated .human-copy > p + p { margin-top: 18px; }
+.lower-curated .human-link { font-size: 14px; margin-top: 24px; min-height: 48px; }
+.lower-curated .identity-scene { height: 560px; margin-top: 15px; }
+.identity-planet { position: absolute; width: 430px; height: 430px; left: 50%; top: 50%; translate: -50% -50%; border-radius: 50%; background: #afa0c226; border: 1px solid #cbbad12f; }
+.identity-planet::before, .identity-planet::after { content: ''; position: absolute; border-radius: 50%; border: 1px solid #cbbad12f; inset: 20px; }
+.identity-planet::after { inset: 70px; }
+.identity-planet > i { position: absolute; top: 50%; left: -11%; width: 122%; height: 1px; background: #cbbad126; transform: rotate(45deg); }
+.identity-planet > i:nth-child(2) { transform: rotate(-45deg); }
+.identity-planet > span { position: absolute; left: 20px; top: 24px; font-size: 9px; letter-spacing: 1px; color: #c4b4d0; transform: rotate(-30deg); }
+.identity-type-orbit { width: 560px; height: 560px; position: absolute; top: 0; left: calc(50% - 280px); pointer-events: none; }
+.identity-type-orbit svg { width: 100%; height: 100%; fill: #d9c6e9; font: 500 12px var(--font); letter-spacing: 5px; }
+.lower-curated .identity-card { top: 52px; width: 295px; height: 416px; left: calc(50% - 148px); border-radius: 3px; background: #d5c7e5; box-shadow: 2px 2px #857093,4px 5px #857093,6px 8px #857093, 22px 31px 35px #08070866; }
+.lower-curated .identity-card-top, .lower-curated .identity-card-bottom { font-size: 8px; }
+.lower-curated .identity-emblem > span { background: #d5c7e5; }
+.lower-curated .identity-name { font-size: 35px; }
+.lower-curated .identity-name > span { font-size: 7px; }
+.lower-curated .identity-sticker { left: -3%; bottom: 34px; width: 168px; height: 143px; border-radius: 1px; background: #ff865f; font-size: 10px; padding: 18px 23px; z-index: 3; }
+.lower-curated .identity-sticker::before { content: ''; position: absolute; top: -12px; left: 47px; width: 73px; height: 27px; background: #f5e2bc80; transform: rotate(3deg); }
+.lower-curated .identity-sticker em { font-size: 47px; }
+.lower-curated .identity-caption { left: 50%; bottom: -11px; translate: -50%; font-size: 9px; color: #c6b8d0; letter-spacing: 1.3px; }
+.lower-curated .identity-orbit { top: 22%; border-color: #d4c2e255; }
+.identity-coordinate { position: absolute; font-size: 10px; line-height: 1.6; letter-spacing: 1.2px; color: #e1d8e7; }
+.identity-coordinate span { font-size: 8px; color: #b5a7bf; }
+.coordinate-one { left: -7%; top: 12px; }
+.coordinate-one > i { display: block; width: 8px; height: 8px; background: #d8edaa; border-radius: 50%; margin-bottom: 12px; box-shadow: 0 0 0 5px #d8edaa14; }
+.coordinate-two { right: -1%; bottom: 58px; font-size: 8px; text-align: right; }
+.lower-curated .human-principles { gap: 0; border-top-color: #f0e6f138; padding-top: 0; }
+.lower-curated .human-principles > div { position: relative; min-height: 215px; padding: 30px 25px 0; border-left-color: #f0e6f126; margin-top: 26px; }
+.lower-curated .human-principles > div:first-child { padding-left: 0; }
+.lower-curated .human-principles > div > span { font-size: 10px; color: #bdb0c5; letter-spacing: 1px; }
+.lower-curated .human-principles p { font-size: clamp(20px,2vw,29px); margin: 22px 0 12px; letter-spacing: -.7px; }
+.lower-curated .human-principles > div > span:last-of-type { font-size: 13px; letter-spacing: 0; line-height: 1.7; color: #c5bccb; display: block; max-width: 270px; }
+.principle-mark { position: absolute; right: 24px; top: 9px; width: 47px; height: 47px; opacity: .75; color: #d0bfdf; }
+.principle-mark svg { width: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; }
+
+/* The playground: a desk-sized experiment, with a physical drawing surface. */
+.play-chapter.lower-curated { background: #f0ede4; color: #292d26; padding-top: 50px; }
+.lower-curated .play-intro { position: relative; align-items: flex-start; padding: 45px 0 66px; min-height: 300px; }
+.lower-curated .play-intro h2 { font-size: clamp(64px,8.9vw,136px); line-height: 1; letter-spacing: -2px; z-index: 1; }
+.lower-curated .play-intro h2 em { display: block; text-align: left; padding-left: 2.15em; margin-top: -3px; color: #65723d; font-size: 1.5em; letter-spacing: -.06em; }
+.lower-curated .play-intro p { padding: 8px 0 0; font-size: 15px; line-height: 1.7; }
+.play-scribble { position: absolute; width: 220px; left: 5%; bottom: 40px; color: #ff6b45; transform: rotate(-12deg); }
+.play-scribble svg { width: 100%; stroke: currentColor; stroke-width: 2; fill: none; }
+.play-experiment-seal { position: absolute; right: 1%; bottom: 19px; width: 165px; height: 122px; background: #d7e8ad; color: #343e22; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-9deg); border: 1px solid #5c702b50; box-shadow: 3px 5px 0 #303b2520; z-index: 2; }
+.play-experiment-seal > span { font-size: 9px; letter-spacing: 1.2px; }
+.play-experiment-seal > strong { font: italic 46px/1.05 var(--serif); margin: 2px 0 9px; letter-spacing: -2px; }
+.play-experiment-seal > span:last-child { font-size: 7px; }
+.lower-curated .play-arena { height: 610px; margin: 0; background: #e7edcf; border: 1px solid #5b6b383b; }
+.lower-curated .arena-grid { background-image: radial-gradient(#65733e55 .8px, transparent .8px); background-size: 25px 25px; mask-image: none; opacity: .6; }
+.lower-curated .arena-type { inset: 110px 0 auto; font-size: clamp(210px,30vw,470px); line-height: 1; letter-spacing: -.025em; color: #b9c985; }
+.lower-curated .arena-type > span { font-size: 10px; letter-spacing: 6px; color: #697a43; margin-top: 5px; }
+.arena-orbits { position: absolute; inset: 70px 18% 80px; pointer-events: none; }
+.arena-orbits > i { position: absolute; inset: 0; border: 1px solid #667c353d; border-radius: 50%; transform: rotate(-25deg) scaleY(.52); }
+.arena-orbits > i:nth-child(2) { transform: rotate(25deg) scaleY(.52); }
+.arena-origin { position: absolute; inset: 45% auto auto 49%; color: #6b7e43; font: 300 30px var(--font); }
+.arena-ruler { position: absolute; top: 77px; bottom: 125px; left: 16px; width: 25px; border-left: 1px solid #6b7a4550; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
+.arena-ruler::before { content: ''; position: absolute; left: -1px; width: 6px; inset-block: 0; background: repeating-linear-gradient(0deg,#6b7a4570 0 1px,transparent 1px 10px); }
+.arena-ruler span { font-size: 8px; margin-left: 11px; color: #61723e; }
+.lower-curated .arena-label { top: 22px; left: 24px; right: 24px; font-size: 10px; }
+.lower-curated .arena-label > span:first-child { gap: 10px; }
+.lower-curated .arena-label i { width: 6px; height: 6px; background: #526133; }
+.chapters .lower-curated .lab-bounds { inset: 62px 42px 114px; }
+.chapters .lower-curated .lab-token { border-color: #fff9; }
+.lower-curated .arena-controls { inset: auto 0 0; min-height: 78px; background: #e3e9cd; border-top: 1px solid #5b6b383b; padding: 15px 23px; }
+.lower-curated .arena-controls > span { font-size: 10px; letter-spacing: 1.1px; }
+.lower-curated .arena-controls > span > span { font-size: 9px; }
+.lower-curated .arena-controls button { font-size: 12px; background: transparent; border-color: #67734466; padding: 12px 18px; }
+.lower-curated .arena-controls button:hover { background: #cfdbb1; }
+.lower-curated .arena-controls #shake-lab { background: #2d3826; color: #f0f3e6; }
+.lower-curated .arena-controls #shake-lab:hover { background: #4e6040; }
+.arena-activity { position: absolute; left: 24px; bottom: 94px; display: flex; align-items: center; gap: 12px; pointer-events: none; }
+.activity-index { display: flex; align-items: center; justify-content: center; width: 27px; height: 23px; border: 1px solid #78884f5e; font-size: 10px; }
+.activity-copy { font-size: 9px; letter-spacing: 1px; color: #5e6d40; }
+.lower-curated .play-afterword { padding-block: 35px 45px; }
+.lower-curated .play-afterword > span { font-size: 9px; letter-spacing: 1px; }
+.lower-curated .play-afterword p { font-size: clamp(18px,2vw,28px); }
+.lower-curated .play-afterword em { color: #5b6939; }
+
+/* The journey: a timeline on black, one open page in a working archive. */
+.journey-chapter.lower-curated { background: #202220; color: #efece3; padding-top: 55px; padding-bottom: 34px; }
+.lower-curated.journey-chapter > .chapter-label { border-color: #efeee336; }
+.lower-curated .journey-layout { grid-template-columns: .8fr 1.2fr; gap: 70px; padding-top: 65px; padding-bottom: 70px; }
+.lower-curated .journey-intro { top: 115px; }
+.lower-curated .journey-intro h2 { font-size: clamp(82px,8.2vw,130px); line-height: 1.03; letter-spacing: -2px; }
+.lower-curated .journey-intro h2 em { color: #d7e8ad; font-size: 1.4em; letter-spacing: -.055em; }
+.lower-curated .journey-intro > p { color: #c0c2b7; font-size: 16px; line-height: 1.75; margin-top: 35px; }
+.lower-curated .journey-object { width: 255px; height: 285px; color: #d1ddaa; margin: 32px 0 0 -12px; }
+.lower-curated .journey-object::before { content: ''; position: absolute; inset: 1px 0 30px; border: 1px solid #bdc69e21; border-radius: 50%; transform: scale(1.15); }
+.lower-curated .journey-object svg { width: 255px; height: 255px; }
+.lower-curated .journey-object > span { color: #b9c099; font-size: 9px; letter-spacing: 1px; }
+.journey-orbit-label { position: absolute; left: 245px; bottom: 68px; transform: rotate(-10deg); color: #ff8e66; white-space: nowrap; }
+.journey-orbit-label > span { display: block; font-size: 8px; letter-spacing: 1px; }
+.journey-orbit-label > strong { font: italic 32px var(--serif); }
+.lower-curated .journey-tickets { position: relative; padding-left: 23px; gap: 0; }
+.journey-spine { position: absolute; left: 0; top: 0; bottom: 75px; width: 1px; background: #e2e9c92e; }
+.journey-spine i { position: absolute; inset: 0; background: #d7e8ad; }
+.journey-spine::before, .journey-spine::after { content: ''; position: absolute; left: -3px; width: 7px; height: 7px; border-radius: 50%; background: #d7e8ad; }
+.journey-spine::before { top: 0; }
+.journey-spine::after { bottom: 0; }
+.chapters .lower-curated .journey-ticket { background: transparent; border: 0; border-bottom: 1px solid #eff2d936; border-radius: 0; box-shadow: none; color: #eeeee3; transform: none; }
+.chapters .lower-curated .journey-ticket:nth-child(n) { transform: none; }
+.chapters .lower-curated .journey-ticket[open] { background: #d3c5e2; border-color: #d3c5e2; color: #302637; }
+.chapters .lower-curated .journey-ticket summary { padding: 28px 25px 28px 21px; gap: 19px; }
+.chapters .lower-curated .journey-ticket .experience-number { font: 52px/1 var(--display); padding: 12px 0; min-width: 50px; color: #adb5a4; }
+.chapters .lower-curated .journey-ticket[open] .experience-number { color: #806894; }
+.lower-curated .ticket-label { font-size: 9px; letter-spacing: 1px; line-height: 1.5; opacity: .8; }
+.chapters .lower-curated .journey-ticket h3 { font-size: clamp(23px,2.2vw,34px); line-height: 1.12; letter-spacing: -.9px; margin-top: 13px; }
+.chapters .lower-curated .journey-ticket summary p { font-size: 13px; color: #bbc2b4; margin-top: 9px; }
+.chapters .lower-curated .journey-ticket[open] summary p { color: #5b4e62; }
+.chapters .lower-curated .journey-ticket .expand-icon { width: 37px; height: 37px; flex-shrink: 0; border-color: #b8c0a560; align-self: center; margin-left: auto; }
+.chapters .lower-curated .journey-ticket .expand-icon::before, .chapters .lower-curated .journey-ticket .expand-icon::after { top: 17px; left: 11px; width: 13px; background: #cbd4bb; }
+.chapters .lower-curated .journey-ticket[open] .expand-icon { background: #403148; border-color: #403148; }
+.chapters .lower-curated .journey-ticket[open] .expand-icon::before { background: #f3edf7; }
+.chapters .lower-curated .journey-ticket .experience-detail { padding: 0 30px 33px 91px; }
+.chapters .lower-curated .journey-ticket .experience-detail p { font-size: 15px; line-height: 1.75; color: #50425a; }
+.chapters .lower-curated .journey-ticket .experience-detail > span { font-size: 9px; color: #6c5978; letter-spacing: 1.2px; }
+.lower-curated .ticket-perforation { display: none; }
+.lower-curated .journey-note { padding-top: 30px; font-size: 13px; color: #adb3a6; text-align: left; line-height: 1.8; }
+.lower-curated .journey-note a { color: #e5ebd8; border-color: #76826a; }
+.journey-floor { padding-top: 24px; border-top: 1px solid #e9eddb2b; display: flex; align-items: center; gap: 22px; color: #acb39e; font-size: 9px; letter-spacing: 1.5px; }
+.journey-floor i { height: 1px; background: #b9c49730; flex: 1; }
+
+/* The invitation: a full-scale typographic poster, signed with a real note. */
+.contact-chapter.lower-curated { background: #ff825b; color: #34251e; padding-top: 45px; padding-bottom: 25px; }
+.lower-curated .contact-stage { padding-top: 47px; min-height: clamp(610px,51vw,800px); }
+.lower-curated .contact-stage h2 { font-size: clamp(90px,12.45vw,192px); line-height: 1.02; letter-spacing: -.025em; position: relative; z-index: 1; }
+.lower-curated .contact-stage h2 em { font-size: 1.85em; line-height: .8; letter-spacing: -.055em; padding-left: .01em; position: relative; }
+.contact-orbit-stamp { position: absolute; width: 148px; height: 148px; top: 63px; right: 15px; border-radius: 50%; color: #36281f; background: #d9e9ae; z-index: 2; }
+.contact-orbit-stamp svg { position: absolute; width: 100%; height: 100%; fill: currentColor; font: 500 10px var(--font); letter-spacing: 2px; }
+.contact-orbit-stamp > span { position: absolute; inset: 0; display: grid; place-items: center; font: 400 77px/1 var(--font); padding-bottom: 4px; }
+.lower-curated .contact-postcard { width: 350px; right: 3%; top: 320px; min-height: 269px; padding: 25px; z-index: 3; background: #f2ecdf; border-radius: 1px; }
+.lower-curated .postcard-top { font-size: 9px; }
+.lower-curated .postcard-message { font-size: 38px; line-height: 1.06; letter-spacing: -1.5px; margin-top: 6px; }
+.lower-curated .postcard-bottom { font-size: 10px; padding-top: 15px; margin-top: 22px; }
+.lower-curated .postage-stamp { width: 51px; height: 61px; font-size: 36px; }
+.lower-curated .postage-stamp small { font-size: 6px; }
+.lower-curated .contact-side-note { font-size: 10px; line-height: 1.8; letter-spacing: 1.2px; margin-top: 70px; }
+.lower-curated .contact-doodle { color: #38271e; font-size: 130px; left: 37%; bottom: 44px; }
+.contact-handline { position: absolute; width: 32%; left: 10%; bottom: 95px; color: #673c24; pointer-events: none; }
+.contact-handline svg { width: 100%; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; }
+.contact-handline path { stroke-dasharray: 700; stroke-dashoffset: 0; }
+.lower-curated .contact-details { padding-top: 32px; padding-bottom: 40px; }
+.lower-curated .contact-details > div > span { font-size: 10px; letter-spacing: 1.4px; }
+.chapters .lower-curated .email-row > a { font-size: clamp(18px,2.15vw,33px); letter-spacing: -.8px; }
+.chapters .lower-curated .copy-email { width: 44px; height: 44px; flex-shrink: 0; }
+.chapters .lower-curated .social-links { gap: 32px; }
+.chapters .lower-curated .social-links > a { font-size: 14px; min-height: 44px; align-items: center; }
+.contact-colophon { display: flex; justify-content: space-between; gap: 20px; padding-top: 21px; border-top: 1px solid #35241d40; font-size: 9px; letter-spacing: 1.1px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .lower-curated .human-principles > div:hover .principle-mark { color: #d7ed9f; transform: rotate(15deg); }
+  .principle-mark { transition: color .3s, transform .6s var(--ease); }
+  .chapters .lower-curated .journey-ticket:not([open]):hover { background: #d7e8ad0a; }
+}
+
+@media (min-width: 1600px) {
+  .human-chapter.lower-curated, .play-chapter.lower-curated, .journey-chapter.lower-curated, .contact-chapter.lower-curated { padding-inline: max(var(--gutter),calc((100vw - 1440px)/2)); }
+  .lower-curated .contact-stage { min-height: 800px; }
+}
+
+@media (max-width: 1100px) {
+  .lower-curated .human-layout { gap: 25px; padding-top: 56px; }
+  .chapters .lower-curated .about-statement { font-size: 6.7vw; }
+  .lower-curated .human-copy > p { font-size: 15px; }
+  .lower-curated .identity-scene { height: 510px; }
+  .identity-planet { width: 340px; height: 340px; }
+  .identity-type-orbit { width: 450px; height: 450px; left: calc(50% - 225px); top: 10px; }
+  .lower-curated .identity-card { scale: .86; top: 29px; }
+  .lower-curated .identity-sticker { scale: .86; left: -4%; bottom: 44px; }
+  .coordinate-one { left: 0; top: -20px; }
+  .coordinate-two { right: -2%; bottom: 12px; }
+  .lower-curated .identity-caption { bottom: -22px; }
+  .principle-mark { width: 35px; height: 35px; right: 10px; }
+  .lower-curated .human-principles > div > span { font-size: 9px; }
+  .lower-curated .play-intro { min-height: 290px; }
+  .lower-curated .play-intro p { font-size: 14px; }
+  .play-experiment-seal { width: 141px; height: 113px; bottom: 20px; }
+  .play-scribble { width: 190px; left: 2%; }
+  .lower-curated .arena-label { font-size: 9px; }
+  .lower-curated .arena-controls { padding-inline: 20px; }
+  .lower-curated .arena-controls > span > span { display: none; }
+  .lower-curated .journey-layout { gap: 40px; grid-template-columns: .8fr 1.2fr; }
+  .lower-curated .journey-intro h2 { font-size: 9vw; }
+  .lower-curated .journey-intro > p { font-size: 15px; }
+  .lower-curated .journey-object { width: 200px; height: 230px; }
+  .lower-curated .journey-object svg { width: 200px; height: 200px; }
+  .journey-orbit-label { left: 195px; bottom: 48px; }
+  .journey-orbit-label > strong { font-size: 27px; }
+  .chapters .lower-curated .journey-ticket summary { padding: 26px 20px; gap: 16px; }
+  .chapters .lower-curated .journey-ticket .experience-number { font-size: 42px; min-width: 40px; }
+  .chapters .lower-curated .journey-ticket .experience-detail { padding-left: 76px; padding-right: 22px; }
+  .lower-curated .ticket-label { font-size: 8px; letter-spacing: .7px; }
+  .contact-orbit-stamp { width: 115px; height: 115px; top: 40px; right: 0; }
+  .contact-orbit-stamp > span { font-size: 59px; }
+  .lower-curated .contact-stage { min-height: 650px; padding-top: 60px; }
+  .lower-curated .contact-postcard { top: 300px; width: 320px; right: 12px; }
+  .lower-curated .postcard-message { font-size: 34px; }
+  .lower-curated .contact-side-note { margin-top: 70px; font-size: 9px; }
+  .lower-curated .contact-doodle { left: 30%; bottom: 40px; font-size: 100px; }
+  .contact-handline { left: 0; bottom: 118px; }
+}
+
+@media (max-width: 800px) {
+  .lower-curated > .chapter-label { font-size: 10px; padding-block: 23px; }
+  .lower-curated > .chapter-label > span:nth-child(2) { font-size: 8px; max-width: 195px; text-align: right; }
+  .human-chapter.lower-curated { padding-top: 40px; padding-bottom: 45px; }
+  .lower-curated .human-layout { grid-template-columns: 1fr; padding-top: 36px; gap: 38px; padding-bottom: 50px; }
+  .chapters .lower-curated .about-statement { font-size: clamp(65px,11vw,90px); }
+  .lower-curated .human-copy > p { font-size: 16px; max-width: 560px; }
+  .lower-curated .identity-scene { width: 100%; max-width: 480px; height: 550px; margin-top: 7px; }
+  .identity-planet { width: 420px; height: 420px; }
+  .identity-type-orbit { width: 530px; height: 530px; left: calc(50% - 265px); top: 10px; }
+  .lower-curated .identity-card { scale: 1; top: 55px; }
+  .lower-curated .identity-sticker { scale: 1; left: 2%; bottom: 25px; }
+  .lower-curated .identity-caption { bottom: -10px; }
+  .coordinate-one { left: 0; top: 0; }
+  .coordinate-two { right: 0; bottom: 48px; }
+  .lower-curated .human-principles { grid-template-columns: 1fr; }
+  .lower-curated .human-principles > div { min-height: auto; border: 0; border-bottom: 1px solid #ffffff26; padding: 27px 60px 27px 0; margin: 0; display: grid; grid-template-columns: 150px 1fr; }
+  .lower-curated .human-principles > div:first-child { padding-left: 0; }
+  .lower-curated .human-principles > div:last-child { padding-bottom: 27px; }
+  .lower-curated .human-principles p { font-size: 23px; margin: 0 0 9px; }
+  .lower-curated .human-principles > div > span:last-of-type { grid-column: 2; font-size: 13px; max-width: none; }
+  .principle-mark { top: 26px; right: 0; width: 40px; height: 40px; }
+  .lower-curated .play-intro { min-height: 310px; padding-top: 35px; padding-bottom: 48px; }
+  .lower-curated .play-intro h2 { font-size: 10.4vw; }
+  .lower-curated .play-intro h2 em { padding-left: 1.5em; }
+  .lower-curated .play-intro p { font-size: 13px; padding-top: 7px; max-width: 165px; }
+  .play-experiment-seal { right: 1%; bottom: 23px; width: 135px; height: 102px; }
+  .play-scribble { width: 145px; bottom: 68px; left: 0; }
+  .lower-curated .arena-label > span:last-child { display: none; }
+  .lower-curated .play-arena { height: 620px; }
+  .chapters .lower-curated .lab-bounds { inset: 65px 22px 145px; }
+  .lower-curated .arena-type { font-size: 34vw; top: 165px; }
+  .lower-curated .arena-type > span { font-size: 8px; letter-spacing: 3px; }
+  .lower-curated .arena-controls { flex-direction: column; align-items: center; min-height: 105px; gap: 12px; }
+  .lower-curated .arena-controls > div { width: 100%; justify-content: center; }
+  .lower-curated .arena-controls > span > span { display: inline; }
+  .arena-activity { bottom: 122px; left: 20px; }
+  .arena-ruler { bottom: 160px; left: 10px; }
+  .lower-curated .play-afterword { justify-content: center; text-align: center; padding-block: 32px 48px; min-height: 145px; }
+  .lower-curated .play-afterword > span { display: none; }
+  .lower-curated .play-afterword p { font-size: 22px; line-height: 1.5; }
+  .lower-curated .play-afterword em { line-height: 1.35; padding-bottom: 4px; }
+  .lower-curated .journey-layout { grid-template-columns: 1fr; padding-top: 36px; gap: 45px; padding-bottom: 40px; }
+  .lower-curated .journey-intro { position: relative; top: auto; }
+  .lower-curated .journey-intro h2 { font-size: 105px; }
+  .lower-curated .journey-intro > p { margin-top: 32px; }
+  .lower-curated .journey-object { position: absolute; width: 195px; height: 215px; right: 15px; top: 8px; margin: 0; }
+  .lower-curated .journey-object svg { width: 195px; height: 195px; }
+  .journey-orbit-label { right: 0; left: auto; bottom: 2px; }
+  .lower-curated .journey-tickets { padding-left: 20px; }
+  .chapters .lower-curated .journey-ticket h3 { font-size: 29px; }
+  .chapters .lower-curated .journey-ticket .experience-number { font-size: 49px; min-width: 49px; }
+  .chapters .lower-curated .journey-ticket .experience-detail { padding-left: 85px; }
+  .lower-curated .ticket-label { font-size: 9px; }
+  .journey-floor { font-size: 8px; letter-spacing: 1px; gap: 12px; }
+  .lower-curated .contact-stage { min-height: 750px; }
+  .lower-curated .contact-stage h2 { font-size: 12.5vw; }
+  .contact-orbit-stamp { top: 30px; width: 105px; height: 105px; right: -10px; }
+  .contact-orbit-stamp > span { font-size: 56px; }
+  .lower-curated .contact-postcard { top: 352px; right: 10%; width: 340px; }
+  .lower-curated .contact-side-note { margin-top: 58px; font-size: 10px; }
+  .lower-curated .contact-doodle { left: 5%; bottom: 62px; font-size: 110px; }
+  .contact-handline { width: 36%; left: 5%; bottom: 320px; }
+  .lower-curated .contact-details { flex-direction: column; align-items: stretch; gap: 22px; padding-bottom: 26px; }
+  .chapters .lower-curated .email-row > a { font-size: clamp(19px,3.8vw,28px); }
+  .chapters .lower-curated .social-links { width: auto; justify-content: flex-start; gap: 45px; }
+  .contact-colophon { font-size: 8px; }
+}
+
+@media (max-width: 540px) {
+  .lower-curated > .chapter-label { font-size: 9px; letter-spacing: .6px; gap: 13px; }
+  .lower-curated > .chapter-label > span:nth-child(2) { display: none; }
+  .lower-curated .chapter-label .label-cross { margin-left: auto; font-size: 26px; }
+  .human-chapter.lower-curated { padding-top: 28px; }
+  .lower-curated .human-layout { padding-top: 30px; gap: 40px; padding-bottom: 40px; }
+  .lower-curated .human-pretitle { font-size: 9px; margin-bottom: 23px; letter-spacing: 1px; }
+  .chapters .lower-curated .about-statement { font-size: 11.7vw; letter-spacing: -1px; }
+  .chapters .lower-curated .about-statement em { font-size: 1.08em; margin-top: 7px; }
+  .lower-curated .human-copy > p { font-size: 16px; line-height: 1.75; margin-top: 25px; }
+  .lower-curated .human-link { font-size: 13px; gap: 20px; }
+  .lower-curated .identity-scene { height: 445px; max-width: 355px; }
+  .identity-planet { width: 325px; height: 325px; }
+  .identity-type-orbit { width: 395px; height: 395px; top: 18px; left: calc(50% - 197.5px); }
+  .identity-type-orbit svg { font-size: 13px; letter-spacing: 4px; }
+  .lower-curated .identity-card { scale: .79; top: 5px; }
+  .lower-curated .identity-sticker { scale: .72; left: -30px; bottom: 9px; }
+  .lower-curated .identity-caption { bottom: 3px; font-size: 8px; letter-spacing: 1px; }
+  .coordinate-one { top: -17px; left: 0; font-size: 9px; }
+  .coordinate-one > i { width: 6px; height: 6px; margin-bottom: 8px; }
+  .coordinate-one span { font-size: 7px; }
+  .coordinate-two { font-size: 7px; bottom: 44px; right: -3px; }
+  .coordinate-two span { font-size: 6px; }
+  .lower-curated .human-principles > div { grid-template-columns: 1fr; padding: 25px 48px 25px 0; }
+  .lower-curated .human-principles p { font-size: 24px; margin: 15px 0 8px; }
+  .lower-curated .human-principles > div > span { font-size: 9px; }
+  .lower-curated .human-principles > div > span:last-of-type { grid-column: 1; font-size: 13px; }
+  .principle-mark { top: 23px; width: 38px; height: 38px; }
+  .play-chapter.lower-curated { padding-top: 26px; }
+  .lower-curated .play-intro { padding-top: 30px; padding-bottom: 30px; min-height: 315px; display: block; }
+  .lower-curated .play-intro h2 { font-size: 14vw; letter-spacing: -1px; }
+  .lower-curated .play-intro h2 em { display: block; padding-left: 1.6em; font-size: 1.6em; line-height: .85; margin-top: 7px; }
+  .lower-curated .play-intro p { font-size: 14px; padding-top: 0; margin-top: 30px; max-width: 190px; }
+  .play-experiment-seal { width: 123px; height: 99px; bottom: 34px; right: -2px; }
+  .play-experiment-seal > span { font-size: 8px; }
+  .play-experiment-seal > strong { font-size: 36px; letter-spacing: -1px; }
+  .play-experiment-seal > span:last-child { font-size: 6px; letter-spacing: .6px; }
+  .play-scribble { width: 116px; left: 0; top: 109px; bottom: auto; }
+  .lower-curated .play-arena { height: 630px; margin-inline: -8px; }
+  .lower-curated .arena-label { left: 16px; top: 20px; font-size: 8px; letter-spacing: .9px; }
+  .chapters .lower-curated .lab-bounds { inset: 56px 8px 142px; }
+  .lower-curated .arena-type { font-size: 37vw; top: 205px; letter-spacing: -.03em; }
+  .lower-curated .arena-type > span { font-size: 6px; letter-spacing: 2px; }
+  .arena-orbits { inset: 100px 9% 140px; }
+  .arena-ruler { top: 65px; bottom: 157px; left: 9px; opacity: .6; }
+  .arena-ruler span { font-size: 7px; }
+  .lower-curated .arena-controls { padding: 13px 9px; min-height: 109px; }
+  .lower-curated .arena-controls > span { font-size: 8px; }
+  .lower-curated .arena-controls > span > span { display: inline; margin-left: 5px; font-size: 7px; }
+  .lower-curated .arena-controls > div { gap: 5px; justify-content: space-between; }
+  .lower-curated .arena-controls button { font-size: 10px; padding: 10px 11px; min-height: 44px; gap: 6px; }
+  .lower-curated .arena-controls #shake-lab { padding-inline: 11px; }
+  .arena-activity { left: 14px; bottom: 121px; gap: 7px; }
+  .activity-copy { font-size: 7px; letter-spacing: .6px; }
+  .activity-index { font-size: 8px; width: 22px; height: 20px; }
+  .lower-curated .play-afterword p { font-size: 20px; max-width: 310px; }
+  .lower-curated .play-afterword em { font-size: 1.25em; }
+  .journey-chapter.lower-curated { padding-top: 29px; padding-bottom: 27px; }
+  .lower-curated .journey-layout { padding-top: 30px; gap: 33px; }
+  .lower-curated .journey-intro { display: grid; grid-template-columns: minmax(0,1fr) 90px; gap: 28px 12px; }
+  .lower-curated .journey-intro h2 { grid-column: 1 / -1; font-size: 23vw; letter-spacing: -1.3px; }
+  .lower-curated .journey-intro > p { font-size: 14px; margin: 0; align-self: center; }
+  .lower-curated .journey-object { position: relative; width: 90px; height: 114px; top: auto; right: auto; margin: 0; align-self: center; }
+  .lower-curated .journey-object::before { inset: 0 0 24px; }
+  .lower-curated .journey-object svg { width: 90px; height: 90px; }
+  .lower-curated .journey-object > span { font-size: 6px; letter-spacing: .5px; }
+  .journey-orbit-label { display: none; }
+  .lower-curated .journey-tickets { padding-left: 13px; }
+  .chapters .lower-curated .journey-ticket summary { padding: 23px 15px 23px 14px; gap: 11px; }
+  .chapters .lower-curated .journey-ticket .experience-number { font-size: 34px; min-width: 34px; padding: 8px 0; }
+  .lower-curated .ticket-label { font-size: 7px; letter-spacing: .6px; }
+  .chapters .lower-curated .journey-ticket h3 { font-size: 23px; letter-spacing: -.7px; margin-top: 9px; }
+  .chapters .lower-curated .journey-ticket summary p { font-size: 12px; line-height: 1.5; margin-top: 7px; }
+  .chapters .lower-curated .journey-ticket .expand-icon { width: 28px; height: 28px; }
+  .chapters .lower-curated .journey-ticket .expand-icon::before, .chapters .lower-curated .journey-ticket .expand-icon::after { width: 10px; left: 8px; top: 12px; }
+  .chapters .lower-curated .journey-ticket .experience-detail { padding: 0 20px 25px 59px; }
+  .chapters .lower-curated .journey-ticket .experience-detail p { font-size: 15px; line-height: 1.75; }
+  .chapters .lower-curated .journey-ticket .experience-detail > span { font-size: 8px; }
+  .lower-curated .journey-note { font-size: 12px; padding-top: 22px; }
+  .lower-curated .journey-note a { display: block; margin-left: 0; width: fit-content; }
+  .journey-floor { font-size: 6px; letter-spacing: .6px; gap: 9px; }
+  .contact-chapter.lower-curated { padding-top: 28px; }
+  .lower-curated .contact-stage { min-height: 700px; padding-top: 67px; }
+  .lower-curated .contact-stage h2 { font-size: 14.2vw; letter-spacing: -1px; }
+  .lower-curated .contact-stage h2 em { font-size: 1.84em; letter-spacing: -.05em; }
+  .contact-orbit-stamp { width: 85px; height: 85px; right: 0; top: 10px; }
+  .contact-orbit-stamp > span { font-size: 47px; }
+  .lower-curated .contact-side-note { font-size: 8px; margin-top: 38px; letter-spacing: .8px; max-width: 260px; }
+  .lower-curated .contact-postcard { top: 337px; width: 265px; min-height: 238px; right: 14px; padding: 21px; }
+  .lower-curated .postcard-top { font-size: 7px; }
+  .lower-curated .postage-stamp { width: 40px; height: 49px; font-size: 29px; }
+  .lower-curated .postage-stamp small { font-size: 5px; }
+  .lower-curated .postcard-message { font-size: 31px; letter-spacing: -1.3px; }
+  .lower-curated .postcard-bottom { font-size: 8px; padding-top: 13px; margin-top: 17px; }
+  .lower-curated .contact-doodle { left: 3px; bottom: 41px; font-size: 78px; }
+  .contact-handline { width: 44%; left: 0; bottom: 370px; }
+  .lower-curated .contact-details { padding-top: 26px; }
+  .lower-curated .contact-details > div > span { font-size: 9px; }
+  .chapters .lower-curated .email-row { gap: 4px; }
+  .chapters .lower-curated .email-row > a { font-size: clamp(15px,4.45vw,24px); letter-spacing: -.6px; }
+  .chapters .lower-curated .social-links { gap: 37px; }
+  .chapters .lower-curated .social-links > a { font-size: 13px; gap: 25px; }
+  .contact-colophon { font-size: 7px; letter-spacing: .65px; line-height: 1.6; gap: 25px; }
+  .contact-colophon > span:last-child { text-align: right; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lower-curated *, .lower-curated *::before, .lower-curated *::after { animation: none !important; transition: none !important; }
+}
+.no-motion .lower-curated *, .no-motion .lower-curated *::before, .no-motion .lower-curated *::after { animation: none !important; transition: none !important; }

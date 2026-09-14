@@ -1,0 +1,67 @@
+.work-filter-stage .work-filters {
+  position: relative;
+  isolation: isolate;
+}
+
+.work-filter-stage .work-filters .filter {
+  position: relative;
+  background: transparent;
+  transition: color .2s, border-color .2s;
+}
+
+.work-filter-stage .work-filters .filter.active {
+  color: #deff7a;
+  background: transparent;
+  border-color: #deff7a55;
+}
+
+.work-filter-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: #deff7a;
+  pointer-events: none;
+}
+
+.work-filter-stage .case-collection[aria-busy='true'] {
+  overflow-anchor: none;
+}
+
+.work-filter-stage .project-card {
+  --filter-opacity: 1;
+  --filter-shift: 0px;
+  opacity: var(--filter-opacity, 1);
+  translate: 0 var(--filter-shift, 0px);
+}
+
+.work-filter-stage .case-scene {
+  --filter-scene-opacity: 1;
+  --filter-scene-shift: 0px;
+  --filter-scene-scale: 1;
+  --filter-scene-mask: 0%;
+  opacity: var(--filter-scene-opacity, 1);
+  translate: var(--filter-scene-shift, 0px) 0;
+  scale: var(--filter-scene-scale, 1);
+  clip-path: inset(0 0 0 var(--filter-scene-mask, 0%));
+  transform-origin: 60% 45%;
+}
+
+.work-filter-stage[data-filter-state='leaving'] .project-card:not([hidden]),
+.work-filter-stage[data-filter-state='entering'] .project-card:not([hidden]) {
+  will-change: opacity, translate;
+}
+
+.work-filter-stage[data-filter-state='entering'] .project-card:not([hidden]) .case-scene {
+  will-change: opacity, translate, scale, clip-path;
+}
+
+.no-motion .work-filter-stage .filter {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-filter-stage .filter { transition: none; }
+}

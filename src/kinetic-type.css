@@ -1,0 +1,117 @@
+/* A baseline reveal preserves each word's kerning and the existing line layout. */
+.kinetic-run,
+.kinetic-visual { display: contents; }
+
+.kinetic-word {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.kinetic-unit {
+  display: inline-block;
+  vertical-align: baseline;
+  transform-origin: 50% 100%;
+}
+
+.kinetic-entering .kinetic-word {
+  perspective: 700px;
+  clip-path: inset(-.3em -.2em -.12em -.2em);
+}
+.kinetic-entering .kinetic-unit { will-change: transform, opacity; }
+
+/* Only the ink responds to hover; letter positions stay steady. */
+@media (hover: hover) and (pointer: fine) {
+  @supports ((background-clip: text) or (-webkit-background-clip: text)) {
+    .hero-display-line .kinetic-motion .kinetic-unit {
+      color: transparent;
+      background-image: linear-gradient(90deg, var(--hero-accent, #ce4527) 0 50%, var(--hero-ink, #25241f) 50% 100%);
+      background-size: 200% 100%;
+      background-position: 100% 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+      transition: background-position .48s cubic-bezier(.22, 1, .36, 1);
+    }
+    .hero-display-line .kinetic-motion:not(.kinetic-entering) .kinetic-word:hover .kinetic-unit {
+      background-position: 0 0;
+    }
+  }
+  .hero .hero-script.kinetic-type .kinetic-script-unit { transition: color .35s ease; }
+  .hero .hero-script.kinetic-motion:not(.kinetic-entering) .kinetic-word:hover .kinetic-script-unit {
+    color: var(--hero-ink, #25241f);
+  }
+}
+
+.kinetic-accessible {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  pointer-events: none !important;
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+.kinetic-nav-window {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.45;
+}
+
+.kinetic-nav-label,
+.kinetic-nav-next {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.kinetic-nav-label,
+.kinetic-nav-next { transition: transform .28s cubic-bezier(.22, 1, .36, 1); }
+
+.kinetic-nav-next {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  color: var(--nav-roll-color, currentColor);
+}
+
+.kinetic-nav.kinetic-motion:is(:hover, :focus-visible) .kinetic-nav-label,
+.kinetic-nav.kinetic-motion:is(:hover, :focus-visible) .kinetic-nav-next { transform: translateY(-100%); }
+
+[data-replay-type] { touch-action: manipulation; }
+[data-replay-type][aria-disabled="true"] { opacity: .55; }
+[data-replay-type][aria-busy="true"] svg { animation: kinetic-replay-turn 1.06s cubic-bezier(.22, 1, .36, 1) both; }
+@keyframes kinetic-replay-turn { to { transform: rotate(360deg); } }
+
+.no-motion .kinetic-unit,
+.no-motion .kinetic-nav-label,
+.no-motion .kinetic-nav-next {
+  transform: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+.no-motion [data-replay-type] svg { animation: none !important; }
+.no-motion .kinetic-word { clip-path: none !important; perspective: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kinetic-unit,
+  .kinetic-nav-label,
+  .kinetic-nav-next {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  [data-replay-type] svg { animation: none !important; }
+  .kinetic-word { clip-path: none !important; perspective: none !important; }
+}
+
+@media (forced-colors: active) {
+  .hero-display-line .kinetic-motion .kinetic-unit { background: none; color: CanvasText; }
+}

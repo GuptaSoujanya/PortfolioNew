@@ -1,0 +1,25 @@
+/* Fine ink outlines and close hatching give the italic phrase a pencil texture. */
+.hero-script { --pencil-ink: #a2452e; }
+.hero-script:not(.kinetic-type),
+.hero-script .kinetic-script-unit {
+  color: transparent;
+  -webkit-text-stroke: .75px var(--pencil-ink);
+  background-image: repeating-linear-gradient(112deg, var(--pencil-ink) 0 .65px, transparent .65px 2.4px);
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(.35px .4px 0 rgb(115 53 35 / 12%));
+}
+@media (max-width: 540px) {
+  .hero-script:not(.kinetic-type), .hero-script .kinetic-script-unit {
+    -webkit-text-stroke-width: .55px;
+    background-image: repeating-linear-gradient(112deg, var(--pencil-ink) 0 .6px, transparent .6px 1.8px);
+  }
+}
+@media (forced-colors: active) {
+  .hero-script:not(.kinetic-type), .hero-script .kinetic-script-unit {
+    color: CanvasText;
+    -webkit-text-stroke: 0;
+    background: none;
+    filter: none;
+  }
+}

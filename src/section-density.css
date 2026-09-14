@@ -1,0 +1,386 @@
+/* Keep the chapters close to their content, with room for working previews. */
+.work-chapter.work-stage {
+  padding-top: 28px;
+}
+
+.work-stage .work-intro {
+  padding-block: 24px 28px;
+}
+
+@media (min-width: 851px) {
+  .work-stage .work-intro h2 { font-size: clamp(100px, 9vw, 140px); }
+}
+
+.work-stage .chapter-toolbar {
+  margin-bottom: 22px;
+}
+
+.work-stage .case-collection {
+  gap: 30px;
+}
+
+.work-stage .case-top,
+.work-stage .case-bottom {
+  padding-block: 16px;
+}
+
+.work-stage .case-bottom {
+  min-height: 58px;
+}
+
+.work-stage .case-body {
+  min-height: 0;
+}
+
+.work-stage .case-copy,
+.work-stage .case-cohart .case-copy {
+  padding-top: 30px;
+  padding-bottom: 28px;
+}
+
+.work-stage .case-copy h3 {
+  margin-top: 27px;
+}
+
+.work-stage .case-copy > p,
+.work-stage .case-link {
+  margin-top: 22px;
+}
+
+.work-stage .case-facts {
+  padding-top: 24px;
+}
+
+.work-stage .case-scene {
+  height: auto;
+  min-height: 590px;
+}
+
+.work-stage .pipeline-machine {
+  top: 62px;
+}
+
+/* These previews contain real controls, so their content sets the height. */
+.work-stage .learning-scene {
+  display: grid;
+  align-content: center;
+  min-height: 0;
+  padding: 68px 30px 48px;
+}
+
+.work-stage .learning-window {
+  position: relative;
+  inset: auto;
+  width: min(390px, 100%);
+  margin-inline: auto;
+  transform: rotate(-3deg);
+}
+
+.work-stage .learning-note {
+  display: none;
+}
+
+.work-stage .learning-sticker {
+  display: none;
+}
+
+.work-stage .interface-scene {
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  min-height: 0;
+  padding: 72px 30px 42px;
+}
+
+.work-stage .interface-scene .work-surface {
+  position: relative;
+  inset: auto;
+  min-width: 0;
+}
+
+.work-stage .interface-window {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  transform: rotate(3deg);
+}
+
+.work-stage .intent-picker {
+  position: relative;
+  inset: auto;
+  justify-self: center;
+  max-width: 100%;
+  transform: none;
+}
+
+.work-stage .work-outro {
+  padding-block: 30px 36px;
+}
+
+.human-chapter.lower-curated {
+  padding-block: 26px 32px;
+}
+
+.lower-curated > .chapter-label {
+  padding-block: 20px;
+}
+
+.lower-curated .human-layout {
+  padding-block: 32px;
+}
+
+.lower-curated .identity-scene {
+  height: 500px;
+  margin-top: 0;
+}
+
+.lower-curated .identity-type-orbit {
+  width: 500px;
+  height: 500px;
+  left: calc(50% - 250px);
+  top: 0;
+}
+
+.lower-curated .identity-card {
+  top: 27px;
+}
+
+.lower-curated .identity-caption {
+  bottom: -8px;
+}
+
+.lower-curated .human-principles > div {
+  min-height: 0;
+  margin-top: 20px;
+  padding-top: 24px;
+}
+
+.play-chapter.lower-curated {
+  padding-top: 32px;
+}
+
+.lower-curated .play-intro {
+  min-height: 0;
+  padding-block: 30px 36px;
+}
+
+.lower-curated .play-arena {
+  height: 500px;
+}
+
+.lower-curated .arena-type {
+  top: 55px;
+  font-size: clamp(210px, 24vw, 330px);
+}
+
+.lower-curated .play-afterword {
+  min-height: 0;
+  padding-block: 24px 30px;
+}
+
+.career-chapter.journey-chapter.lower-curated {
+  padding-top: 32px;
+}
+
+.career-chapter .career-heading {
+  padding-block: 30px 38px;
+}
+
+.career-chapter .career-body {
+  padding-block: 30px 38px;
+}
+
+.career-chapter .career-role summary {
+  padding-block: 21px;
+}
+
+.career-chapter .career-caption {
+  padding-top: 18px;
+}
+
+.career-chapter .career-footer {
+  padding-block: 22px;
+}
+
+/* The postcard participates in layout rather than reserving a blank poster. */
+.contact-chapter.lower-curated {
+  padding-top: 30px;
+}
+
+.lower-curated .contact-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 26px 36px;
+  min-height: 0;
+  padding-block: 32px 48px;
+}
+
+.lower-curated .contact-stage h2 {
+  grid-column: 1 / -1;
+}
+
+.lower-curated .contact-postcard {
+  position: relative;
+  inset: auto;
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+  margin-top: -80px;
+  align-self: start;
+  transform: rotate(5deg);
+}
+
+.lower-curated .contact-side-note {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  align-self: start;
+}
+
+.lower-curated .contact-weave {
+  left: 23%;
+  bottom: 26px;
+  width: clamp(200px, 24vw, 320px);
+}
+
+.lower-curated .contact-details {
+  padding-block: 24px 28px;
+}
+
+/* Put the invitation beside the headline before adding another vertical row. */
+@media (min-width: 701px) {
+  .contact-chapter.lower-curated .contact-stage {
+    grid-template-columns: minmax(0, 1fr) clamp(250px, 28vw, 350px);
+    gap: 22px clamp(28px, 3.3vw, 48px);
+    padding-block: 30px 40px;
+  }
+
+  .contact-chapter.lower-curated .contact-stage h2 {
+    grid-column: 1;
+    grid-row: 1;
+    width: fit-content;
+    max-width: 100%;
+    font-size: clamp(64px, 8.8vw, 136px);
+  }
+
+  .contact-chapter.lower-curated .contact-side-note {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    max-width: 320px;
+  }
+
+  .contact-chapter.lower-curated .contact-postcard {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    width: 100%;
+    margin: 0;
+    align-self: end;
+  }
+
+  .contact-chapter.lower-curated .contact-orbit-stamp {
+    width: 82px;
+    height: 82px;
+    top: 5px;
+    right: 8px;
+  }
+
+  .contact-chapter.lower-curated .contact-orbit-stamp > span {
+    font-size: 43px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+  .contact-chapter.lower-curated .contact-postcard {
+    padding: 21px;
+  }
+
+  .contact-chapter.lower-curated .postcard-message {
+    font-size: 31px;
+  }
+
+  .contact-chapter.lower-curated .contact-orbit-stamp {
+    display: none;
+  }
+}
+
+@media (min-width: 851px) and (max-width: 1100px) {
+  .lower-curated .identity-scene { height: 450px; }
+  .lower-curated .identity-type-orbit { width: 440px; height: 440px; left: calc(50% - 220px); }
+  .lower-curated .identity-card { top: 12px; }
+  .lower-curated .identity-caption { bottom: -10px; }
+  .work-stage .learning-scene { padding-inline: 24px; }
+  .work-stage .interface-scene { padding-inline: 25px; }
+  .lower-curated .contact-stage { grid-template-columns: minmax(0, 1fr) 320px; }
+  .lower-curated .contact-postcard { margin-top: -55px; }
+}
+
+@media (max-width: 850px) {
+  .work-stage .work-intro { padding-bottom: 30px; }
+  .work-stage .work-intro-note { margin-top: 22px; }
+  .work-stage .case-copy, .work-stage .case-cohart .case-copy { padding-block: 27px; }
+  .work-stage .case-scene { min-height: 550px; }
+  .work-stage .learning-scene, .work-stage .interface-scene { min-height: 0; }
+  .work-stage .learning-scene { padding-block: 66px 48px; }
+  .work-stage .interface-scene { padding-inline: 42px; }
+  .work-stage .pipeline-machine { top: 55px; }
+}
+
+@media (max-width: 800px) {
+  .lower-curated .human-layout { gap: 24px; padding-block: 28px 36px; }
+  .lower-curated .identity-scene { height: 500px; }
+  .lower-curated .human-principles > div { margin-top: 0; padding-block: 22px; }
+  .lower-curated .human-principles > div:last-child { padding-bottom: 22px; }
+  .lower-curated .play-intro { padding-block: 28px 32px; }
+  .lower-curated .play-arena { height: 570px; }
+  .lower-curated .arena-type { top: 140px; }
+  .lower-curated .play-afterword { padding-block: 24px 30px; }
+  .lower-curated .contact-stage { grid-template-columns: 1fr; gap: 24px; padding-block: 48px 40px; }
+  .lower-curated .contact-stage h2 { grid-column: 1; }
+  .lower-curated .contact-side-note { grid-row: 2; }
+  .lower-curated .contact-postcard { grid-column: 1; grid-row: 3; justify-self: end; width: min(340px, 90%); margin: 0 4% 0 0; }
+  .lower-curated .contact-orbit-stamp { top: 12px; }
+  .lower-curated .contact-weave { left: 0; bottom: 30px; width: 185px; }
+}
+
+@media (max-width: 767px) {
+  .career-chapter .career-heading { padding-block: 26px 30px; gap: 20px; }
+  .career-chapter .career-body { gap: 26px; padding-block: 24px 30px; }
+}
+
+@media (max-width: 540px) {
+  .work-chapter.work-stage { padding-top: 24px; }
+  .work-stage .work-intro { padding-block: 26px; }
+  .work-stage .case-collection { gap: 22px; }
+  .work-stage .case-copy, .work-stage .case-cohart .case-copy { padding-block: 24px; }
+  .work-stage .case-copy h3 { margin-top: 22px; }
+  .work-stage .case-copy > p, .work-stage .case-link { margin-top: 20px; }
+  .work-stage .case-bottom { min-height: 68px; }
+  .work-stage .case-scene { min-height: 510px; }
+  .work-stage .learning-scene, .work-stage .interface-scene { min-height: 0; }
+  .work-stage .learning-scene { padding: 62px 18px 48px; }
+  .work-stage .interface-scene { padding: 64px 20px 42px; gap: 23px; }
+  .work-stage .intent-picker { width: 100%; padding: 13px 10px; }
+  .work-stage .intent-picker > div { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+  .work-stage .intent-picker button { padding-inline: 7px; white-space: normal; }
+  .work-stage .work-outro { padding-block: 25px 30px; }
+  .human-chapter.lower-curated { padding-block: 26px 30px; }
+  .lower-curated .identity-scene { height: 400px; }
+  .lower-curated .identity-type-orbit { width: 375px; height: 375px; left: calc(50% - 187.5px); top: 8px; }
+  .lower-curated .identity-card { top: -8px; }
+  .lower-curated .identity-caption { bottom: -5px; }
+  .lower-curated .identity-sticker { bottom: -12px; }
+  .lower-curated .coordinate-two { bottom: 20px; }
+  .lower-curated .human-principles > div { padding-block: 21px; }
+  .play-chapter.lower-curated { padding-top: 24px; }
+  .lower-curated .play-intro { padding-block: 26px 28px; }
+  .lower-curated .play-intro p { margin-top: 24px; }
+  .lower-curated .play-experiment-seal { bottom: 26px; }
+  .lower-curated .arena-type { top: 175px; }
+  .career-chapter.journey-chapter.lower-curated { padding-top: 24px; }
+  .contact-chapter.lower-curated { padding-top: 24px; }
+  .lower-curated .contact-stage { padding-block: 54px 36px; gap: 22px; }
+  .lower-curated .contact-postcard { width: min(285px, 90%); }
+  .lower-curated .contact-weave { width: 140px; bottom: 20px; }
+  .lower-curated .contact-details { padding-block: 22px; }
+}

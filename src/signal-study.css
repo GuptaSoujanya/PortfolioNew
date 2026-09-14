@@ -1,0 +1,58 @@
+/* The work index carries an original parametric drawing, not an ornamental icon. */
+.work-stage .work-intro-note.with-signal-study { width: 400px; max-width: 34%; flex-shrink: 0; padding-bottom: 6px; }
+.signal-study { --study-accent: #d2bff2; margin: 0 0 24px; width: 100%; color: var(--study-accent); }
+.signal-study-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 7px; line-height: 1.5; letter-spacing: 1.2px; color: #b9b0bf; padding-bottom: 7px; }
+.signal-study-index { color: var(--study-accent); font-variant-numeric: tabular-nums; }
+.signal-study-surface { position: relative; width: calc(100% + 34px); margin-left: -17px; aspect-ratio: 500 / 310; }
+.signal-study-surface > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.signal-thread { fill: none; stroke: url(#signal-thread-gradient); stroke-width: 1; stroke-linecap: round; opacity: .82; }
+.signal-crossline { fill: none; stroke: var(--study-accent); stroke-width: .55; opacity: .32; }
+.signal-selvedge { stroke: #f6efff; stroke-width: 1.5; opacity: .9; }
+[data-study='structure'] .signal-thread { stroke: #d4e5b1; }
+[data-study='flow'] .signal-thread { stroke: #efb69a; }
+.signal-ground, .signal-measure { fill: none; stroke: #aaa0b5; stroke-width: .65; opacity: .45; }
+.signal-measure text { fill: #c8bed1; stroke: none; font: 8px var(--font); letter-spacing: 1.4px; }
+.signal-surface-hint { position: absolute; inset: auto 0 30px; text-align: center; font-size: 7px; letter-spacing: 1.4px; color: #ded5e9; opacity: 0; transition: opacity .2s; pointer-events: none; }
+.signal-study-controls { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 5px; margin-top: 3px; border-top: 1px solid #bcaaca40; }
+.signal-study-controls button { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 9px 3px; background: transparent; color: #b4aabd; font-size: 11px; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.signal-study-controls button > span { font-size: 8px; color: #a293ad; }
+.signal-study-controls button[aria-pressed='true'] { border-color: var(--study-accent); color: var(--study-accent); }
+.signal-study-controls button:focus-visible { outline: 2px solid var(--study-accent); outline-offset: 2px; }
+.signal-study figcaption { margin-top: 13px; display: flex; flex-direction: column; gap: 5px; min-height: 35px; }
+.signal-study-field { font-size: 7px; letter-spacing: 1.4px; color: var(--study-accent); }
+.signal-study-caption { font-size: 10px; line-height: 1.55; color: #bbb2c2; }
+.work-stage .with-signal-study > p { font-size: 14px; line-height: 1.75; max-width: 32ch; }
+.work-stage .with-signal-study > span:last-child { font-size: 8px; margin-top: 17px; letter-spacing: .8px; }
+@media (hover:hover) and (pointer:fine) {
+  .signal-study-surface:hover .signal-surface-hint { opacity: 1; }
+  .signal-study-controls button:hover { color: #f2ebf7; }
+}
+@media (min-width: 1600px) { .work-stage .work-intro-note.with-signal-study { max-width: 30%; } }
+@media (max-width: 1100px) and (min-width: 851px) {
+  .work-stage .work-intro h2 { font-size: 10.9vw; }
+  .work-stage .work-intro-note.with-signal-study { max-width: 32%; }
+  .signal-study-heading { font-size: 6px; letter-spacing: .7px; }
+  .signal-study-controls button { font-size: 10px; gap: 5px; }
+}
+@media (max-width: 850px) {
+  .work-stage .work-intro-note.with-signal-study { display: grid; width: 100%; max-width: none; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 0 35px; align-items: center; margin-top: 30px; }
+  .signal-study { grid-column: 1; grid-row: 1 / 3; margin: 0; }
+  .work-stage .with-signal-study > p { grid-column: 2; align-self: end; padding-bottom: 10px; }
+  .work-stage .with-signal-study > span:last-child { grid-column: 2; align-self: start; margin-top: 0; font-size: 7px; line-height: 1.6; }
+}
+@media (max-width: 540px) {
+  .work-stage .work-intro-note.with-signal-study { display: flex; flex-direction: column; align-items: stretch; gap: 0; max-width: 420px; margin-top: 36px; }
+  .signal-study { order: 0; margin: 0 0 24px; }
+  .signal-study-heading { font-size: 7px; }
+  .signal-study-surface { margin-left: -10px; width: calc(100% + 20px); }
+  .signal-study-controls button { min-height: 46px; font-size: 12px; }
+  .signal-study-caption { font-size: 11px; }
+  .work-stage .with-signal-study > p { align-self: auto; font-size: 15px; max-width: 34ch; padding: 0; }
+  .work-stage .with-signal-study > span:last-child { margin-top: 15px; }
+}
+.no-motion .signal-study * { transition: none !important; }
+.no-motion .signal-surface-hint { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .signal-study * { transition: none !important; }
+  .signal-surface-hint { display: none; }
+}

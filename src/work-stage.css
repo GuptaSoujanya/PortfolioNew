@@ -1,0 +1,279 @@
+/* Three projects, three visual worlds. The previews remain usable at every size. */
+.work-stage { padding-top: 64px; }
+.work-stage .work-intro { position: relative; padding-top: 42px; padding-bottom: 74px; }
+.work-stage .work-intro h2 { font-size: clamp(100px, 12.2vw, 184px); line-height: .94; letter-spacing: -4px; }
+.work-stage .work-intro h2 em { padding-left: .32em; color: #d1bef2; }
+.work-stage .work-intro-note { z-index: 1; max-width: 300px; padding-right: 0; }
+.work-stage .work-intro-note p { font-size: 17px; line-height: 1.6; }
+.work-stage .work-intro-note > span:last-child { font-size: 10px; color: #bdb7bb; }
+.work-stage .drawn-arrow { color: #deff7a; margin-bottom: 12px; }
+.work-edition { position: absolute; top: 35px; right: 17.5%; width: 139px; height: 139px; display: grid; place-items: center; color: #deff7a; transform: rotate(15deg); }
+.work-edition svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: currentColor; }
+.work-edition span { position: relative; z-index: 1; color: #22251b; font-size: 8px; font-weight: 650; letter-spacing: .7px; text-align: center; }
+.work-edition span:first-child { align-self: end; padding-bottom: 3px; }
+.work-edition span:last-child { align-self: start; padding-top: 3px; }
+.work-stage .chapter-toolbar { margin-bottom: 30px; }
+.work-stage .chapter-toolbar > span { font-size: 10px; color: #bcb6bb; }
+.work-stage .filter { min-height: 44px; border-color: #69626b; }
+.work-stage .filter.active { background: #deff7a; color: #202419; border-color: #deff7a; }
+.work-stage .case-collection { gap: 56px; }
+.work-stage .case-study { --case-ink: #292033; border: 0; border-radius: 5px; }
+.work-stage .case-top, .work-stage .case-bottom { margin-inline: 34px; padding-block: 23px; font-size: 10px; letter-spacing: 1px; line-height: 1.5; }
+.work-stage .case-top { border-color: #30274140; }
+.work-stage .case-bottom { min-height: 67px; border-color: #30274140; }
+.work-stage .case-bottom > span:last-child, .work-stage .case-bottom a { font-size: 10px; }
+.work-stage .case-body { grid-template-columns: 1fr 1.08fr; min-height: 668px; }
+.work-stage .case-copy { padding: 44px 32px 36px 38px; }
+.work-stage .case-wordmark { font-size: 18px; }
+.work-stage .case-copy h3 { margin-top: 47px; font-size: clamp(60px, 6.1vw, 92px); line-height: 1.04; letter-spacing: -1.7px; }
+.work-stage .case-copy h3 em { font-size: 1.13em; white-space: nowrap; }
+.work-stage .case-copy > p { max-width: 335px; margin-top: 31px; font-size: 16px; line-height: 1.75; }
+.work-stage .case-link { margin-top: 31px; border: 1px solid currentColor; border-radius: 30px; min-height: 49px; font-size: 13px; padding: 13px 18px 13px 23px; gap: 34px; transition: background .25s, color .25s; }
+.work-stage .case-link .icon { height: 20px; width: 20px; }
+.work-stage .case-link:hover { background: var(--case-ink); color: #f1eee7; }
+.work-stage .case-facts { font-size: 9px; line-height: 1.6; gap: 8px 13px; opacity: .85; }
+.work-stage .case-scene { min-height: 668px; overflow: hidden; border-radius: 100px 0 0 0; }
+.work-surface { position: absolute; inset: 0; z-index: 2; transform-style: flat; pointer-events: none; }
+.work-world { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.work-world-word { position: absolute; bottom: 25px; left: -8%; font: 400 clamp(140px, 17vw, 250px)/.9 var(--display); letter-spacing: -6px; white-space: nowrap; opacity: .14; }
+.work-world-cross { position: absolute; bottom: 87px; left: 25px; font: 300 47px/.8 var(--font); opacity: .8; }
+.work-scene-index { position: absolute; right: 26px; top: 25px; font: 400 127px/.9 var(--display); letter-spacing: -4px; opacity: .16; pointer-events: none; }
+.work-scene-tab { position: absolute; top: 36px; left: 44px; display: flex; align-items: center; gap: 8px; font-size: 9px; letter-spacing: 1.2px; z-index: 4; pointer-events: none; }
+.work-scene-tab > i { width: 6px; height: 6px; background: currentColor; border-radius: 50%; }
+.work-scene-spine { position: absolute; right: 12px; top: 190px; writing-mode: vertical-rl; font-size: 8px; letter-spacing: 1.7px; z-index: 4; pointer-events: none; }
+.work-stage .scene-disclaimer { bottom: 19px; font-size: 8px; letter-spacing: 1px; opacity: .85; z-index: 5; pointer-events: none; }
+.work-read-progress { position: absolute; bottom: 0; inset-inline: 0; height: 3px; }
+.work-read-progress i { display: block; height: 100%; background: currentColor; opacity: .55; transform-origin: left; }
+
+/* A violet engine inside an ink-purple signal chamber. */
+.work-stage .case-eval { background: #d0bdee; }
+.work-stage .case-eval .case-copy h3 em { color: #68408a; }
+.work-stage .eval-scene { color: #eee1ff; background: #382748; }
+.work-stage .eval-scene .scene-grid { background-image: linear-gradient(#dcc7ef0d 1px,transparent 1px),linear-gradient(90deg,#dcc7ef0d 1px,transparent 1px); background-size: 32px 32px; z-index: 0; }
+.work-stage .eval-scene .scene-orbit { display: none; }
+.work-world-signal .work-world-form { position: absolute; width: 90%; aspect-ratio: 1; top: 65px; left: 5%; border: 1px solid #dec6fa37; border-radius: 50%; }
+.work-world-signal .work-world-form i { position: absolute; inset: 10%; border: 1px solid #dcc5f733; border-radius: 50%; }
+.work-world-signal .work-world-form i:nth-child(2) { inset: 20%; }
+.work-world-signal .work-world-form i:nth-child(3) { inset: 30%; }
+.work-world-signal .work-world-form i:nth-child(4) { width: 13px; height: 13px; top: 8%; left: 23%; border: 0; background: #ddff80; box-shadow: 0 0 20px #ddff8044; }
+.work-world-signal .work-world-form i:nth-child(5) { width: 7px; height: 7px; top: 85%; left: 15%; border: 0; background: #d6b6fc; }
+.work-stage .pipeline-machine { top: 85px; left: calc(50% - 174px); scale: 1.06; }
+.work-stage .machine-layer { color: #30223c; border-radius: 11px; border-color: #ffffffbd; }
+.work-stage .layer-input { background: linear-gradient(125deg,#eee0ff,#b997df); box-shadow: 0 2px #9170b0,0 5px #805b9e,0 8px #694184,-17px 35px 36px #160b2355; }
+.work-stage .layer-reason { color: #f6edff; background: linear-gradient(130deg,#895ab2,#542f79); }
+.work-stage .machine-core { font: 72px/1 var(--display); letter-spacing: -2px; color: #ddff87; text-shadow: none; }
+.work-stage .layer-output { background: linear-gradient(125deg,#ddff8b,#c7e882); box-shadow: 0 2px #9aac63,0 5px #869652,0 8px #697844,-17px 35px 36px #160b2355; }
+.work-stage .pipeline-receipt { right: 35px; bottom: 103px; width: 272px; padding: 19px 21px; color: #30223c; background: #f7f1e8; border: 0; box-shadow: -7px 14px 25px #160b2345; transform: rotate(-5deg); z-index: 5; }
+.work-stage .pipeline-receipt::before { content: ''; position: absolute; inset: -6px 0 auto; height: 7px; background: linear-gradient(135deg,transparent 50%,#f7f1e8 50%) 0 0 / 12px 12px,linear-gradient(225deg,transparent 50%,#f7f1e8 50%) 0 0 / 12px 12px; }
+.work-stage .pipeline-receipt > div:first-child { font-size: 9px; letter-spacing: .4px; }
+.work-stage .pipeline-receipt p { font-size: 16px; min-height: 43px; }
+.work-stage .demo-action { min-height: 46px; bottom: 45px; padding-inline: 23px; font-size: 12px; background: #ddff85; color: #30223c; }
+.work-stage .demo-action:hover { background: #efffc3; }
+
+/* A brightly printed learning club: paper, acid green, and an orange seal. */
+.work-stage .case-cohart { --case-ink: #263522; background: #f0eddf; }
+.work-stage .case-cohart .case-body { grid-template-columns: 1.08fr 1fr; }
+.work-stage .case-cohart .case-copy { order: 2; padding-left: 44px; }
+.work-stage .case-cohart .case-copy h3 em { color: #648134; }
+.work-stage .cohart-wordmark { font-size: 41px; }
+.work-stage .cohart-wordmark > span { font-size: 34px; }
+.work-stage .learning-scene { background: #d9f782; color: #2e4323; border-radius: 0 100px 0 0; }
+.work-world-growth .work-world-word { color: #6c8e36; opacity: .22; bottom: 40px; }
+.work-world-growth .work-world-form { position: absolute; width: 320px; height: 360px; right: -58px; top: 42px; transform: rotate(-10deg); }
+.work-world-growth .work-world-form i { position: absolute; width: 65px; height: 290px; top: 30px; left: 125px; background: #aac44d; }
+.work-world-growth .work-world-form i:nth-child(2) { transform: rotate(36deg); }
+.work-world-growth .work-world-form i:nth-child(3) { transform: rotate(72deg); }
+.work-world-growth .work-world-form i:nth-child(4) { transform: rotate(108deg); }
+.work-world-growth .work-world-form i:nth-child(5) { transform: rotate(144deg); }
+.work-stage .learning-sun { display: none; }
+.work-stage .learning-window { width: min(390px, 75%); top: 112px; left: 12%; background: #faf8ef; border: 1px solid #30432569; border-radius: 7px; box-shadow: 2px 3px #71834e,4px 6px #71834e,6px 9px #71834e,16px 25px 0 #859f4545; transform: rotate(-8deg) rotateY(-4deg); z-index: 2; }
+.work-stage .window-bar { min-height: 35px; font-size: 8px; letter-spacing: .8px; }
+.work-stage .learning-window-body { padding: 21px 23px 23px; }
+.work-stage .learning-greeting { font-size: 35px; margin: 18px 0 20px; }
+.work-stage .path-selector { gap: 5px; margin: 15px 0; }
+.work-stage .path-selector button { min-height: 44px; font-size: 11px; padding: 10px 12px; }
+.work-stage .lesson-preview { padding: 16px; }
+.work-stage .lesson-preview > span { font-size: 9px; letter-spacing: .6px; }
+.work-stage .lesson-preview h4 { font-size: 21px; margin-bottom: 13px; }
+.work-stage .lesson-preview li { font-size: 12px; gap: 8px; line-height: 1.45; padding-block: 10px; }
+.work-stage .lesson-preview li > span:first-child { font-size: 9px; }
+.work-stage .learning-note { top: 72px; left: 26px; font-size: 24px; color: #3e5226; transform: rotate(-12deg); }
+.work-stage .learning-note svg { display: none; }
+.work-stage .learning-sticker { width: 112px; height: 112px; right: 20px; bottom: 88px; background: #ff794b; color: #442d24; border: 5px double #442d2459; box-shadow: 6px 7px #442d2429; z-index: 4; pointer-events: none; }
+.work-stage .learning-sticker > span:first-child { font-size: 37px; }
+.work-stage .learning-sticker > span:last-child { font-size: 8px; }
+
+/* An orange portal makes the black interface feel like a physical object. */
+.work-stage .case-agui { --case-ink: #f4efdf; background: #242527; }
+.work-stage .case-agui .case-top, .work-stage .case-agui .case-bottom { border-color: #ffffff36; }
+.work-stage .case-agui .case-copy h3 { font-size: clamp(53px, 5.25vw, 80px); }
+.work-stage .case-agui .case-copy h3 em { color: #ff9270; font-size: 1.28em; }
+.work-stage .case-agui .case-copy > p { color: #d0ccc6; }
+.work-stage .case-agui .case-link:hover { color: #242527; }
+.work-stage .interface-scene { color: #492c26; background: #ff9069; }
+.work-stage .interface-halo { display: none; }
+.work-world-portal .work-world-word { color: #e14b2e; opacity: .33; }
+.work-world-portal .work-world-form { position: absolute; width: 470px; height: 530px; top: 49px; left: 12%; border: 21px solid #ffc7a2; border-radius: 50%; transform: rotate(-20deg); box-shadow: 8px 8px 0 #dd674b, inset 7px 7px 0 #dd674b; }
+.work-world-portal .work-world-form i { position: absolute; inset: 30px; border: 12px solid #ffd1ad; border-radius: 50%; box-shadow: 4px 5px 0 #dd674b,inset 3px 4px 0 #dd674b; }
+.work-world-portal .work-world-form i:nth-child(2) { inset: 66px; border-width: 9px; }
+.work-world-portal .work-world-form i:nth-child(n+3) { display: none; }
+.work-stage .interface-window { top: 108px; left: 8%; right: 10%; border: 1px solid #6d7466; border-radius: 7px; box-shadow: 4px 5px #4c5245,8px 10px #30342e, 17px 22px 0 #713c3040; transform: rotate(7deg) rotateY(-5deg); }
+.work-stage .interface-window[data-theme=night] { background: #252925; }
+.work-stage .interface-canvas { min-height: 334px; padding: 23px; }
+.work-stage .interface-coordinate { font-size: 8px; right: 19px; }
+.work-stage .interface-canvas > strong { font-size: clamp(65px, 6.3vw, 90px); margin-top: 46px; }
+.work-stage .interface-mini-footer { font-size: 8px; margin-top: 25px; }
+.work-stage .interface-sculpture { width: 157px; height: 170px; right: 8px; }
+.work-stage .interface-sculpture i { border-color: #d1ef83; }
+.work-stage .intent-picker { bottom: 71px; padding: 16px; background: #f5efdf; color: #302c26; border: 0; border-radius: 4px; transform: translateX(-50%) rotate(-4deg); box-shadow: 6px 8px 0 #713c303b; z-index: 5; }
+.work-stage .intent-picker > span { color: #62554b; font-size: 9px; }
+.work-stage .intent-picker button { min-height: 44px; font-size: 11px; padding: 10px 12px; border-color: #5f594c55; }
+.work-stage .intent-picker button[aria-pressed=true] { background: #302e28; border-color: #302e28; color: #f5efdf; }
+.work-stage .work-outro { padding-block: 43px 60px; }
+.work-stage .work-outro > span:first-child { font-size: 10px; color: #c4bcc7; }
+.work-stage .work-outro > span:nth-child(2) { font-size: 30px; }
+
+@media (min-width: 1600px) {
+  .work-stage .case-body, .work-stage .case-scene { min-height: 700px; }
+  .work-stage .case-copy { padding-left: 48px; }
+  .work-stage .pipeline-machine { top: 87px; scale: 1.16; }
+  .work-stage .learning-window { width: 425px; }
+}
+@media (max-width: 1150px) and (min-width: 851px) {
+  .work-stage .case-body, .work-stage .case-scene { min-height: 650px; }
+  .work-stage .case-copy { padding-left: 27px; padding-right: 18px; }
+  .work-stage .case-cohart .case-copy { padding-left: 30px; }
+  .work-stage .case-copy h3 { font-size: 64px; }
+  .work-stage .case-agui .case-copy h3 { font-size: 55px; }
+  .work-stage .case-copy > p { font-size: 15px; }
+  .work-stage .case-top, .work-stage .case-bottom { font-size: 8px; margin-inline: 27px; }
+  .work-stage .case-bottom > span:last-child, .work-stage .case-bottom a { font-size: 8px; }
+  .work-stage .pipeline-machine { scale: .91; left: calc(50% - 154px); top: 112px; }
+  .work-stage .pipeline-receipt { width: 245px; right: 20px; }
+  .work-stage .learning-window { width: 82%; left: 7%; top: 135px; }
+  .work-stage .learning-window-body { padding: 18px; }
+  .work-stage .learning-greeting { font-size: 31px; }
+  .work-stage .path-selector button { font-size: 10px; padding-inline: 9px; }
+  .work-stage .lesson-preview { padding: 13px; }
+  .work-stage .lesson-preview h4 { font-size: 19px; }
+  .work-stage .learning-sticker { width: 94px; height: 94px; bottom: 54px; right: 10px; }
+  .work-stage .learning-sticker > span:first-child { font-size: 30px; }
+  .work-stage .interface-window { top: 119px; left: 6%; right: 8%; }
+  .work-stage .interface-canvas { padding: 17px; min-height: 316px; }
+  .work-stage .interface-canvas > strong { font-size: 67px; }
+  .work-stage .interface-coordinate { right: 12px; font-size: 7px; }
+  .work-stage .intent-picker { padding: 12px; max-width: 92%; }
+  .work-stage .intent-picker button { font-size: 10px; padding-inline: 9px; }
+  .work-stage .work-edition { right: 24%; width: 110px; height: 110px; top: 27px; }
+}
+@media (max-width: 850px) {
+  .work-stage .work-intro { display: block; }
+  .work-stage .work-intro h2 { font-size: clamp(87px, 13.2vw, 120px); }
+  .work-stage .work-intro-note { max-width: 420px; margin-top: 30px; }
+  .work-stage .work-intro-note p br { display: none; }
+  .work-stage .work-intro-note p { font-size: 14px; }
+  .work-stage .work-edition { width: 105px; height: 105px; right: 4%; top: 15px; }
+  .work-stage .work-edition span { font-size: 6px; }
+  .work-stage .case-body, .work-stage .case-cohart .case-body { display: grid; grid-template-columns: 1fr; min-height: 0; }
+  .work-stage .case-copy, .work-stage .case-cohart .case-copy { order: 0; padding: 37px 32px 36px; }
+  .work-stage .case-copy h3 { font-size: clamp(71px, 10.5vw, 87px); margin-top: 30px; }
+  .work-stage .case-agui .case-copy h3 { font-size: clamp(61px, 9.5vw, 78px); }
+  .work-stage .case-copy > p { max-width: 440px; font-size: 16px; margin-top: 25px; }
+  .work-stage .case-facts { padding-top: 28px; }
+  .work-stage .case-scene { height: 625px; min-height: 625px; border-radius: 65px 0 0 0; margin-left: 28px; }
+  .work-stage .case-cohart .case-scene { border-radius: 0 65px 0 0; margin-left: 0; margin-right: 28px; }
+  .work-stage .case-top { font-size: 9px; }
+  .work-stage .case-top > span:last-child { max-width: 43%; text-align: right; }
+  .work-stage .pipeline-machine { top: 80px; scale: 1; }
+  .work-stage .pipeline-receipt { right: 40px; bottom: 104px; }
+  .work-stage .learning-window { width: 370px; left: calc(50% - 196px); top: 110px; }
+  .work-stage .learning-sticker { bottom: 65px; right: 22px; }
+  .work-stage .interface-window { left: 10%; right: 12%; top: 96px; }
+  .work-stage .interface-canvas > strong { font-size: 80px; }
+  .work-stage .intent-picker { bottom: 62px; }
+  .work-stage .work-outro > span:nth-child(2) { font-size: 25px; }
+}
+@media (max-width: 540px) {
+  .work-stage { padding-top: 40px; }
+  .work-stage .work-intro { padding-top: 36px; padding-bottom: 31px; display: block; }
+  .work-stage .work-intro h2 { font-size: clamp(58px, 18.7vw, 99px); letter-spacing: -1.6px; }
+  .work-stage .work-intro h2 em { padding-left: .21em; }
+  .work-stage .work-intro h2 sup { font-size: 12px; margin: 7px 0 0 7px; }
+  .work-stage .work-intro-note { display: block; margin-top: 28px; max-width: 340px; padding: 0; }
+  .work-stage .work-intro-note p { font-size: 15px; line-height: 1.55; }
+  .work-stage .work-intro-note p br { display: none; }
+  .work-stage .work-intro-note > span:last-child { display: block; font-size: 8px; margin-top: 13px; }
+  .work-stage .drawn-arrow { display: none; }
+  .work-stage .work-edition { width: 75px; height: 75px; top: auto; bottom: 40px; right: -4px; transform: rotate(17deg); }
+  .work-stage .work-edition span { font-size: 4.5px; letter-spacing: .3px; }
+  .work-stage .chapter-toolbar { margin-bottom: 22px; }
+  .work-stage .filter { font-size: 11px; padding: 11px 12px; }
+  .work-stage .filter span { font-size: 9px; }
+  .work-stage .case-collection { margin-inline: -10px; gap: 30px; }
+  .work-stage .case-top, .work-stage .case-bottom { margin-inline: 22px; padding-block: 19px; font-size: 9px; letter-spacing: .55px; }
+  .work-stage .case-top > span:last-child { display: none; }
+  .work-stage .case-bottom { min-height: 79px; gap: 15px; align-items: center; }
+  .work-stage .case-bottom > span:first-child { max-width: 57%; line-height: 1.6; }
+  .work-stage .case-bottom > span:last-child, .work-stage .case-bottom a { font-size: 9px; max-width: 40%; line-height: 1.7; }
+  .work-stage .case-copy, .work-stage .case-cohart .case-copy { padding: 29px 23px 31px; }
+  .work-stage .case-wordmark { font-size: 17px; }
+  .work-stage .cohart-wordmark { font-size: 37px; }
+  .work-stage .case-copy h3 { font-size: clamp(54px, 14.6vw, 75px); letter-spacing: -1px; margin-top: 26px; }
+  .work-stage .case-copy h3 em { letter-spacing: -1.6px; font-size: 1.14em; }
+  .work-stage .case-agui .case-copy h3 { font-size: clamp(45px, 12.1vw, 64px); }
+  .work-stage .case-agui .case-copy h3 em { font-size: 1.35em; }
+  .work-stage .case-copy > p { font-size: 16px; line-height: 1.65; margin-top: 25px; }
+  .work-stage .case-link { font-size: 13px; margin-top: 25px; gap: 28px; padding-inline: 20px; }
+  .work-stage .case-facts { font-size: 9px; letter-spacing: .35px; gap: 7px 13px; padding-top: 25px; }
+  .work-stage .case-scene { height: 572px; min-height: 572px; margin-left: 10px; border-radius: 48px 0 0 0; }
+  .work-stage .case-cohart .case-scene { margin-right: 10px; border-radius: 0 48px 0 0; }
+  .work-scene-tab { top: 29px; left: 28px; font-size: 8px; letter-spacing: .9px; }
+  .work-scene-index { top: 20px; right: 20px; font-size: 98px; }
+  .work-scene-spine { right: 7px; top: 152px; font-size: 7px; }
+  .work-world-word { font-size: 153px; letter-spacing: -3px; bottom: 32px; }
+  .work-stage .scene-disclaimer { font-size: 7px; bottom: 16px; letter-spacing: .6px; }
+  .work-stage .pipeline-machine { top: 86px; left: calc(50% - 166px); scale: .78; }
+  .work-stage .pipeline-receipt { width: 238px; right: 23px; bottom: 103px; padding: 16px 19px; }
+  .work-stage .pipeline-receipt > div:first-child { font-size: 8px; }
+  .work-stage .pipeline-receipt p { font-size: 15px; min-height: 40px; margin-block: 12px; }
+  .work-stage .demo-action { bottom: 44px; min-height: 46px; font-size: 12px; }
+  .work-stage .learning-scene { min-height: 637px; height: 637px; }
+  .work-stage .learning-window { width: calc(100% - 49px); left: 18px; top: 114px; transform: rotate(-4deg); }
+  .work-stage .learning-window .window-bar { font-size: 7px; height: 32px; padding-inline: 12px; }
+  .work-stage .learning-window-body { padding: 17px; }
+  .work-stage .learning-window .mini-wordmark { font-size: 20px; }
+  .work-stage .learning-greeting { font-size: 31px; margin: 18px 0; }
+  .work-stage .path-selector { gap: 4px; margin-block: 17px; }
+  .work-stage .path-selector button { padding: 10px 11px; min-height: 44px; font-size: 11px; }
+  .work-stage .lesson-preview { padding: 14px; }
+  .work-stage .lesson-preview > span { font-size: 8px; }
+  .work-stage .lesson-preview h4 { font-size: 20px; margin: 9px 0 13px; }
+  .work-stage .lesson-preview li { font-size: 11px; line-height: 1.4; padding-block: 11px; }
+  .work-stage .lesson-preview li > span:first-child { font-size: 9px; }
+  .work-stage .learning-note { top: 77px; left: 27px; font-size: 23px; }
+  .work-stage .learning-sticker { width: 90px; height: 90px; bottom: 29px; right: 16px; }
+  .work-stage .learning-sticker > span:first-child { font-size: 30px; }
+  .work-stage .learning-sticker > span:last-child { font-size: 7px; }
+  .work-world-growth .work-world-form { right: -122px; }
+  .work-stage .interface-scene { height: 592px; min-height: 592px; }
+  .work-stage .interface-window { top: 99px; left: 6%; right: 10%; transform: rotate(5deg); }
+  .work-stage .interface-canvas { min-height: 286px; padding: 19px; }
+  .work-stage .interface-window .window-bar { font-size: 7px; padding-inline: 12px; }
+  .work-stage .interface-coordinate { font-size: 7px; right: 11px; top: 24px; }
+  .work-stage .interface-canvas > strong { font-size: 64px; margin-top: 51px; }
+  .work-stage .interface-canvas > strong em { font-size: .88em; }
+  .work-stage .interface-mini-footer { font-size: 7px; margin-top: 23px; }
+  .work-stage .interface-sculpture { right: -5px; width: 128px; top: 108px; }
+  .work-stage .intent-picker { bottom: 56px; padding: 13px 11px; max-width: 94%; }
+  .work-stage .intent-picker > span { font-size: 8px; }
+  .work-stage .intent-picker button { padding: 10px 8px; font-size: 10px; min-height: 44px; }
+  .work-world-portal .work-world-form { width: 330px; height: 400px; left: 7%; top: 63px; border-width: 15px; }
+  .work-stage .work-outro { padding-block: 33px 39px; gap: 16px; }
+  .work-stage .work-outro > span:first-child { font-size: 9px; }
+  .work-stage .work-outro > span:nth-child(2) { font-size: 23px; line-height: 1.25; }
+  .work-stage .outro-arrow { font-size: 35px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-stage *, .work-stage *::before { transition: none !important; animation: none !important; }
+}
+.no-motion .work-stage *, .no-motion .work-stage *::before { transition: none !important; animation: none !important; }
