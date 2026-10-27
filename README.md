@@ -1,67 +1,79 @@
 # Soujanya Lab
 
-An experimental portfolio with a bold “Code. Craft. Curiosity.” opening, interactive diagrams of the actual projects, three distinct project worlds, an orbital identity exhibit, and a tactile physics playground. A spring-driven cursor and scroll-responsive artwork connect the sections. Built with TypeScript, GSAP, and Vite. No backend or API keys are required.
+A portfolio focused on Soujanya Gupta’s frontend product engineering, AI agent evaluation, and LLM tooling work. Built with TypeScript, GSAP, and Vite, with locally hosted fonts and no backend or API keys.
 
 ## Run locally
 
 ```sh
 npm install
 npm run dev
+npm run build
 ```
 
-Open the local address printed by Vite. To create the production site:
+The production output is `dist/`, suitable for static hosting. This repository update does not deploy the site.
+
+## Content and structure
+
+The original editorial template is retained: oversized typography, the pencil signature, animated 3D project boards, interactive project previews, career artwork, the identity card, and the contact postcard. Product additions use the same colors and typography. The opening introduces frontend and AI evaluation work, links to the résumé, and includes direct jumps to Morrow, MyMandi, and Kuberha. The page then presents:
+
+1. Morrow as a featured personal build with original artwork and three interactive preview views. MyMandi and Kuberha frontend contributions follow, with official product icons, layered dashboard illustrations, and a scrolling integration strip. The internal WildClawBench platform uses the OpenClaw harness.
+2. Three résumé projects: EvalAgentFlow, Cohart Study Guide, and RideMate.
+3. Experience at Ethara AI (formerly Green Rider Technology), organized into evaluation, dataset quality, and frontend ownership, followed by the Robotronix Engineering Tech internship.
+4. A captured public GitHub profile, four verified achievement badges, and selected repositories with source and author-filtered commit-history links.
+5. Biography, skills, education, certifications, and contact details.
+
+Project diagrams are authored architecture illustrations. Morrow’s preview uses sample content and does not operate its local workspace. The evaluation preview does not execute model requests. The GitHub section is a curated snapshot, not a live activity counter.
+
+## Content sources and verification
+
+Updated on 28 October 2026 from the résumé supplied by the owner and the public [GitHub profile](https://github.com/GuptaSoujanya). The supplied résumé takes precedence for the name, current role, employment dates, location, and email. Ethara AI and Green Rider Technology describe one continuous role, not two employers. CodeAlpha and the earlier agent-driven portfolio were removed from the featured narrative.
+
+Professional implementation details and résumé project capabilities are owner-supplied. The internal WildClawBench implementation has no public source link; this portfolio does not claim authorship of the upstream benchmark. EvalAgentFlow likewise has no verified public implementation link. `Agents-flow` contains only a license at review time and is not presented as its source code.
+
+The owner confirmed a 10-month product engagement on MyMandi and Kuberha within Ethara AI’s engineering team. Scope includes sales, inventory, admin, and order dashboards, Shiprocket delivery workflows and AI features in both products. The 100+ figure refers to business-app integrations across the two products together, including email apps and Google Sheets. It is not an order count or a separate count per product. Frontend ownership is distinguished from ownership of the entire product or backend.
+
+Public product context comes from the official [MyMandi listing](https://play.google.com/store/apps/details?id=com.mandi.mandiweb) and [Kuberha listing](https://play.google.com/store/apps/details?id=com.kuberha.app). These describe the products; the owner's contribution comes from the supplied professional history. The conceptual workflow diagrams do not represent screenshots of the private dashboards.
+
+Public repositories were checked using the GitHub REST API and source files:
+
+- [Morrow](https://github.com/GuptaSoujanya/Morrow): a personal career-workspace beta. The README at `e626fbddbc5a9ad582963fff5cad769a9490f307` and [frontend](https://github.com/GuptaSoujanya/Morrow-frontend) at `85f6be68a4eae4ea26c9ea6504fc8e4a88a6bc02` establish the 90-day learning plan, 18 specialist agents, React/TanStack Query interface, Python services, and SQLite ledger. Original logo and character assets come from the frontend. Workflows have not been independently executed.
+- [llm-eval-harness](https://github.com/GuptaSoujanya/llm-eval-harness): the CLI uses `MockLLMProvider`; presented as a prototype with task and metric interfaces.
+- [agentic-rag-benchmark](https://github.com/GuptaSoujanya/agentic-rag-benchmark): a small in-memory retrieval and metrics prototype.
+- [inference-latency-profiler](https://github.com/GuptaSoujanya/inference-latency-profiler): the engine simulates token delays; presented as a timing simulation.
+- [RideMate](https://github.com/GuptaSoujanya/Ridemate) and [Cohart](https://github.com/GuptaSoujanya/Cohart-Study-guide): repository existence verified; detailed project scope follows the supplied résumé. Cohart’s live URL is owner-supplied.
+
+No benchmark performance tables, contribution streaks, upstream contribution counts, or adoption claims were inferred from repository descriptions. Authored-PR and commit links let readers inspect the underlying activity. The displayed public repositories are the owner’s own projects.
+
+The public GitHub profile was captured on 28 October 2026 (India time) in a signed-out browser. Its achievement sidebar confirms Pull Shark, Pair Extraordinaire, Quickdraw, and YOLO. The displayed screenshot is unedited; badge images are the originals served by GitHub. The résumé remains the authority for the portfolio’s name, location, and role title, even where profile text differs. `scripts/capture-github-profile.mjs` refreshes the screenshot and records capture metadata; review it before updating the displayed date.
+
+MyMandi and Kuberha icons come from their official Google Play listings. Google Sheets and Shiprocket represent named workflows; Gmail is labeled as an illustration of the owner-confirmed email-app category. Other strip entries describe workflow categories rather than claiming additional named integrations. Asset provenance is recorded in `public/assets/*/SOURCE.txt`.
+
+## Editing
+
+- `index.html`: homepage, flagship work, experience, GitHub selection, skills, and contact.
+- `public/resume.html`: standalone résumé, with print styles for the browser’s Print / Save as PDF command. Keep it aligned with experience and skills edits.
+- `src/projects.ts`: project-dialog content.
+- `src/recruiter-content.css`: additive styles for product contributions, the flagship, repository list, skills, and updated copy. The existing template styles and interactive modules remain active.
+- `src/product-showcase.ts` and `src/product-showcase.css`: Morrow tabs and agent descriptions, finite illustration replays, pointer depth, and integration-strip motion. The strip pauses on hover, its own pause control, global motion-off, reduced-motion preferences, hidden tabs, and leaving the viewport.
+- `src/showcase-polish.css`: branded product cards, readable contribution-button hover states, integration strip, and GitHub profile, badge, and repository layouts.
+- `src/idea-desk.ts` and `src/idea-forms.ts`: hero architecture diagrams and destinations.
+- `src/career-stage.ts`: experience chapter labels, artwork, and navigation.
+- `src/chapters.ts`: evaluation illustration and curriculum preview interactions.
+- `src/main.ts`: dialogs, contact actions, navigation, and motion preferences.
+
+The design retains the original editorial typography, pencil signature, project boards, and accessible motion controls. The former playground has been replaced with skills and education. Dormant artwork modules are not imported into the application.
+
+## Checks
 
 ```sh
 npm run build
-npm run preview
-```
-
-Deploy the generated `dist/` directory to any static host (for example, Vercel, Netlify, or Cloudflare Pages). Use `npm run build` as the build command and `dist` as the output directory.
-
-## Edit the content
-
-- `index.html`: biography, experience, contact details, navigation, and homepage previews.
-- `src/projects.ts`: the project descriptions shown in dialogs.
-- `src/style.css` and `src/chapters.css`: base layouts and component styles.
-- `src/hero-stage.*`: bold editorial opening, responsive layout, and chapter navigation.
-- `src/idea-desk.*`: extruded 3D project boards, pointer perspective, ordered ink reveals, and replay controls.
-- `src/idea-forms.ts`: authored diagrams of the agent pipeline, learning journey, and conversational interface.
-- `src/kinetic-type.*`: readable word entrances, deliberate text replay, and whole-label navigation transitions.
-- `src/pencil-mark.*`: the lowercase sg pencil signature and writing reveal; `scripts/generate-monogram.mjs` regenerates its textured vector artwork and matching favicon from editable curves.
-- `src/pencil-type.css`: the pencil treatment for the italic hero text.
-- `src/work-stage.*`: the three project worlds and their pointer/scroll depth.
-- `src/work-filters.*`: animated project filtering, a sliding selection indicator, and transitions that respect motion preferences.
-- `src/lower-chapters.*`: about, playground, and contact art direction.
-- `src/section-density.css`: content-driven preview heights, tighter section spacing, and responsive contact layout.
-- `src/career-stage.*`: four selectable career chapters, changing generative artwork, role disclosures, and keyboard navigation.
-- `src/editorial-graphics.*`: engraved contours for the identity card.
-- `src/motion-trace.*`: bounded SVG traces of actual playground drag gestures.
-- `src/cursor.*`: contextual mouse cursor and magnetic interactions.
-- `src/playground.ts`: draggable toolkit objects, collisions, gravity, and keyboard controls.
-- `src/main.ts`: filters, dialogs, motion preferences, and other interactions.
-- `DESIGN.md`: the visual direction, palette, typography, and interaction choices.
-
-The hero connects each project to a 3D board: evaluation inputs and raised agent blocks, a layered learning path, and a conversation driving interface actions. CSS perspective, shaded side faces, and pointer-controlled tilt give the authored SVG content depth without WebGL. Visitors can switch projects, replay the drawing and assembly, or open the corresponding work. Headings reveal in staggered whole words; hero text responds with an ink sweep on hover. Motion preferences persist, and reduced-motion settings show complete, stationary boards immediately.
-
-Experience is an interactive exhibition: chapter buttons, native role disclosures, and the next-chapter control stay synchronized. Each role has its own palette and geometric artwork. Chapter buttons support arrow keys, Home, and End. Text reveals preserve the original accessible phrases; the cursor expands into a contextual hover frame, responds to presses, and adds local button and arrow feedback. Every interaction remains usable with motion disabled.
-
-Manrope, Anton, DM Sans, and Instrument Serif are hosted locally; their SIL Open Font Licenses are included in `public/fonts/`.
-
-Contact actions use the verified email address and social links. Email opens the visitor's email app; no messages are stored or sent by the site. This new showcase does not include an AI chat backend.
-
-## Content sources and review
-
-Content was adapted from the owner-provided [portfolio](https://www.soujanyalab.in/) and [LinkedIn profile](https://www.linkedin.com/in/soujanya-gupta-0224621ba/). The public LinkedIn profile lists Ethara AI, while the earlier portfolio lists Green Rider Technology as current; the newer LinkedIn information is used for the current company. Exact employment dates were omitted because an updated résumé was not attached.
-
-Projects featured: EvalAgentFlow, Cohart, and the earlier agent-driven portfolio. Homepage project previews are original conceptual illustrations, not screenshots of the live products. No unverified performance metrics or testimonials are included. An updated résumé can be placed in `public/` and linked once available.
-
-Visual direction draws on the editorial, craft-focused approach of the supplied Wall of Portfolios references; their artwork and layouts are not copied.
-
-## Browser checks
-
-```sh
-npx playwright install chromium
 npm test
 ```
 
-If Chromium is already installed, set `PLAYWRIGHT_CHROMIUM_EXECUTABLE` to its executable path. Set `PLAYWRIGHT_BASE_URL` to test a production preview without development reloads. Checks cover the project diagrams, filters, dialog keyboard behavior, contact links, experience entries, motion preferences, playground controls, and responsive layouts. Run `node scripts/capture-design-review.mjs http://127.0.0.1:5189` against a preview to save section screenshots and layout measurements in `artifacts/design-repair/`.
+Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE` to a local Chromium executable if needed. `PLAYWRIGHT_BASE_URL` can target an existing preview server. Tests cover content destinations, filters, dialogs, career navigation, Morrow keyboard tabs and replay behavior, stable contribution controls, marquee pause behavior, brand assets, GitHub badges, motion preferences, and responsive layouts.
+
+```sh
+node scripts/capture-design-review.mjs http://127.0.0.1:5189 artifacts/review
+```
+
+This captures desktop/mobile screenshots and layout measurements. Browser tooling must be available on the host.
