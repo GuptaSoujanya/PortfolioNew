@@ -14,8 +14,8 @@ export function createHeroStage(initialMotion: boolean) {
   nav.inert = true;
 
   const chapters = [
-    ['work', 'Selected work'], ['about', 'The human'], ['play', 'The playground'],
-    ['experience', 'The journey'], ['contact', 'Contact'],
+    ['work', 'Selected work'], ['experience', 'Experience'], ['github', 'Public code'],
+    ['about', 'About and skills'], ['contact', 'Contact'],
   ];
   const links = chapters.map(([id, label], index) => {
     const link = document.createElement('a');

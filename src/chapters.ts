@@ -1,8 +1,8 @@
 import gsap from 'gsap';
 
 const learningPaths = {
-  web: { category: 'THE WEB DEVELOPMENT PATH', title: 'First, make something.', lessons: ['HTML & the web', 'Give it some style', 'Make it interactive'] },
-  ai: { category: 'THE AI & ML PATH', title: 'Start with a question.', lessons: ['Python foundations', 'Understand the data', 'Explore generative AI'] },
+  web: { category: 'THE WEB DEVELOPMENT PATH', title: 'Build the whole stack.', lessons: ['React & Next.js architecture', 'Node.js & MongoDB backends', 'System design fundamentals'] },
+  ai: { category: 'THE AI & ML PATH', title: 'Start with a question.', lessons: ['Generative AI engineering', 'LLM application architecture', 'Evaluation & retrieval'] },
   interview: { category: 'THE INTERVIEW PREP PATH', title: 'Think it through.', lessons: ['Data structures & algorithms', 'Reason about systems', 'Practice the conversation'] },
 };
 
@@ -95,19 +95,6 @@ export function createChapters(initialMotion: boolean) {
     });
   });
 
-  const preview = document.querySelector<HTMLElement>('.interface-window')!;
-  const themes = { night: { word: 'night owl.', label: 'Night' }, paper: { word: 'slow down.', label: 'Paper' }, play: { word: 'wild idea.', label: 'Playful' } };
-  document.querySelectorAll<HTMLButtonElement>('[data-intent]').forEach(button => {
-    listen(button, 'click', () => {
-      const theme = button.dataset.intent as keyof typeof themes;
-      preview.dataset.theme = theme;
-      document.querySelector('#interface-word')!.textContent = themes[theme].word;
-      document.querySelector('#intent-status')!.textContent = `${themes[theme].label} style selected.`;
-      document.querySelectorAll('[data-intent]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      if (motion) animate('.interface-sculpture', { rotation: theme === 'play' ? 110 : theme === 'paper' ? -15 : 20, duration: .9, ease: 'power3.out', overwrite: true });
-    });
-  });
-
   document.querySelectorAll<HTMLElement>('[data-tilt]').forEach(surface => {
     const object = surface.querySelector<HTMLElement>('.identity-card') || surface;
     listen(surface, 'pointermove', ((event: PointerEvent) => {
@@ -130,7 +117,7 @@ export function createChapters(initialMotion: boolean) {
         if (running) finishPipeline();
         animations.forEach(tween => tween.kill());
         animations.clear();
-        gsap.set('.identity-card, .contact-postcard, .interface-sculpture, .lesson-preview', { clearProps: 'transform,opacity' });
+        gsap.set('.identity-card, .contact-postcard, .lesson-preview', { clearProps: 'transform,opacity' });
       }
     },
     dispose() {

@@ -5,10 +5,10 @@ import './career-stage.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const chapters = [
-  { company: 'Ethara AI', word: 'connect.', kicker: 'INTELLIGENT SYSTEMS', thread: 'A good system is more than\nthe sum of its parts.', formula: 'IDEAS → SYSTEMS → POSSIBILITIES' },
-  { company: 'Green Rider Technology', word: 'scale.', kicker: 'STRONG FOUNDATIONS', thread: 'Build with care.\nMake room for what comes next.', formula: 'STRUCTURE → CRAFT → SCALE' },
-  { company: 'CodeAlpha', word: 'make.', kicker: 'LEARNING BY DOING', thread: 'Every small interaction\nis a chance to make things better.', formula: 'CURIOSITY → PRACTICE → PROGRESS' },
-  { company: 'Robrotronix India', word: 'begin.', kicker: 'THE FIRST SPARK', thread: 'The best way to understand it?\nMake something with it.', formula: 'QUESTION → EXPERIMENT → DISCOVERY' },
+  { company: 'Agent evaluation platform', word: 'evaluate.', kicker: 'AGENT EVALUATION', thread: 'Test behavior when tools\nand backend state change.', formula: 'RUN → MUTATE → GRADE' },
+  { company: 'Model & dataset quality', word: 'measure.', kicker: 'MODEL & DATA QUALITY', thread: 'Good evaluation starts\nwith trustworthy data.', formula: 'CURATE → BENCHMARK → REVIEW' },
+  { company: 'Frontend platforms', word: 'ship.', kicker: 'PRODUCTION INTERFACES', thread: 'Make complex systems\nusable by the people running them.', formula: 'COMPONENTS → METRICS → DELIVERY' },
+  { company: 'Robotronix Engineering Tech', word: 'build.', kicker: 'FULL-STACK OWNERSHIP', thread: 'Own the implementation\nfrom interface to delivery.', formula: 'REACT → REST APIS → PRODUCT' },
 ];
 
 function artwork(index: number) {
