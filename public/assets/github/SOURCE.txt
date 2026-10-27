@@ -1,0 +1,10 @@
+Public profile: https://github.com/GuptaSoujanya
+Fetched 28 October 2026 (India time).
+Original GitHub achievement artwork verified in the profile sidebar:
+Achievement: Pair Extraordinaire: https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png
+Achievement: Pull Shark: https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png
+Achievement: Quickdraw: https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png
+Achievement: YOLO: https://github.githubassets.com/assets/yolo-default-be0bbff04951.png
+avatar.png: https://avatars.githubusercontent.com/u/158287001?s=256&v=4
+profile-snapshot.jpg: unedited screenshot captured by scripts/capture-github-profile.mjs. See snapshot.json for capture metadata.
+Profile display-name, bio, and README claims are not substituted for the owner-supplied résumé.
