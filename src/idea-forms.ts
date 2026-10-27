@@ -55,17 +55,17 @@ export function learningForm() {
   </g>`;
 }
 
-export function interfaceForm() {
-  return `<g class="idea-project-diagram diagram-interface">
-    ${label(14, 27, 'WORDS BECOME AN INTERFACE', 'label-eyebrow')}
-    ${panel('interface-conversation', 14, 59, 180, 181,
-      `${label(28, 84, 'CONVERSATION', 'label-eyebrow')}${rule(28, 98, 151)}<rect class="idea-form-muted" x="28" y="114" width="148" height="41" rx="5"/>${label(40, 139, 'Keep it calm.', 'label-title')}${label(28, 182, 'Choose a tone.', 'label-body')}${label(28, 204, 'Describe the intent.', 'label-body')}`, 'paper', 'conversation')}
-    ${ink('conversation-to-action', 'M194 150H232', true)}
-    ${panel('interface-action', 232, 95, 112, 110,
-      `${label(247, 121, 'ACTION', 'label-eyebrow')}${label(247, 150, 'theme', 'label-code')}${label(247, 177, 'paper', 'label-title')}`, 'clay', 'action')}
-    ${ink('action-to-interface', 'M344 150H382', true)}
-    ${panel('interface-preview', 382, 59, 124, 181,
-      `${label(394, 84, 'INTERFACE', 'label-eyebrow')}${rule(394, 98, 100)}${label(394, 133, 'HELLO.', 'label-preview')}<rect class="idea-form-muted" x="395" y="147" width="93" height="6" rx="2"/><rect class="idea-form-muted" x="395" y="164" width="67" height="6" rx="2"/><rect class="idea-form-result" x="395" y="193" width="67" height="24" rx="4"/>`, 'paper', 'interface')}
-    ${label(14, 273, 'INTENT', 'label-small')}${label(382, 273, 'VISIBLE RESPONSE', 'label-small')}
+export function evaluationForm() {
+  return `<g class="idea-project-diagram diagram-evaluation">
+    ${label(14, 27, 'WILDCLAWBENCH / OPENCLAW', 'label-eyebrow')}
+    ${panel('eval-routing', 14, 70, 146, 164,
+      `${label(28, 96, '01 / ROUTE', 'label-eyebrow')}${label(28, 128, 'LiteLLM', 'label-title')}${rule(28, 145, 116)}${label(28, 169, 'Model providers', 'label-body')}${label(28, 193, 'Cost + caching', 'label-body')}`, 'paper', 'routing')}
+    ${ink('route-to-run', 'M160 152H187', true)}
+    ${panel('eval-environment', 187, 70, 146, 164,
+      `${label(201, 96, '02 / EXECUTE', 'label-eyebrow')}${label(201, 128, 'Agent runs', 'label-title')}${rule(201, 145, 116)}${label(201, 169, '101 mock services', 'label-body')}${label(201, 193, 'State drift', 'label-body')}`, 'lilac', 'environment')}
+    ${ink('run-to-grade', 'M333 152H360', true)}
+    ${panel('eval-council', 360, 70, 146, 164,
+      `${label(374, 96, '03 / GRADE', 'label-eyebrow')}${label(374, 128, '3 judges', 'label-title')}${rule(374, 145, 116)}${label(374, 169, 'Evidence budgets', 'label-body')}${label(374, 193, 'Weighted pytest', 'label-body')}`, 'sage', 'council')}
+    ${label(14, 273, 'INTERNAL PLATFORM / ETHARA AI', 'label-small')}
   </g>`;
 }

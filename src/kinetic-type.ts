@@ -92,7 +92,7 @@ export function createKineticType(initialMotion: boolean) {
   const targets: [string, TextStyle][] = [
     ['.hero-display-line > span', 'hero'],
     ['.hero-script', 'script'],
-    ['#work-title, .case-copy h3', 'editorial'],
+    ['#work-title, .case-copy h3, #morrow-heading, .morrow-promise, .product-work-heading h3, .product-feature h4', 'editorial'],
     ['#about-title', 'human'],
     ['#experience-title', 'editorial'],
     ['#play-title', 'play'],

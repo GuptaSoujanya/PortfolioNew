@@ -1,0 +1,251 @@
+/* Product stories extend the original paper / editorial / dimensional template. */
+.work-jumps { display: flex; flex-wrap: wrap; gap: 4px 28px; margin: 0 0 28px; border-top: 1px solid #ffffff25; border-bottom: 1px solid #ffffff25; }
+.work-jumps a { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; font-size: 12px; color: #e1dfd5; }
+.work-jumps a span { font-size: 9px; color: #b0b5a0; }
+.work-jumps a:hover { color: #d7ed9f; }
+.morrow-feature { --morrow-ink: #493024; --morrow-accent: #a1411d; position: relative; isolation: isolate; padding: clamp(24px, 2.8vw, 42px); margin-bottom: 36px; background: #f0dfcf; color: var(--morrow-ink); border: 1px solid #cdb6a3; overflow: clip; scroll-margin-top: 95px; }
+.morrow-feature::before { content: 'NEXT'; position: absolute; left: -16px; bottom: -55px; z-index: -1; font: 400 clamp(180px, 28vw, 410px)/1 'Anton', sans-serif; letter-spacing: -.03em; color: #e6cfb9; pointer-events: none; }
+.morrow-feature-top { display: flex; justify-content: space-between; flex-wrap: wrap; align-items: center; gap: 12px; padding-bottom: 25px; border-bottom: 1px solid #b8a18b77; font-size: 10px; letter-spacing: .07em; }
+.morrow-build-label { display: inline-flex; align-items: center; gap: 8px; }
+.morrow-build-label i { width: 6px; height: 6px; background: #a1411d; border-radius: 50%; }
+.morrow-layout { display: grid; grid-template-columns: minmax(245px, .78fr) minmax(0, 1.55fr); align-items: center; gap: clamp(22px, 3vw, 45px); padding: 32px 0; }
+.morrow-copy { min-width: 0; padding-bottom: 12px; }
+.morrow-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 25px; }
+.morrow-brand img { width: clamp(43px, 4vw, 58px); height: auto; }
+.morrow-brand h3 { font: 800 clamp(49px, 5vw, 76px)/1 'Manrope', sans-serif; letter-spacing: -.065em; }
+.morrow-promise { font: 500 clamp(24px, 2.5vw, 37px)/1.2 'Manrope', sans-serif; letter-spacing: -.045em; }
+.morrow-promise em { display: block; margin-top: 3px; font: italic 400 1.28em/1.05 'Instrument Serif', serif; color: #984421; }
+.morrow-copy > p:not(.morrow-promise) { font-size: 14px; line-height: 1.8; margin-top: 23px; max-width: 360px; }
+.morrow-scope { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 22px 0 0; }
+.morrow-scope li { font-size: 10px; padding: 7px 10px; border: 1px solid #bda08a; background: #fbf1e554; border-radius: 2px; }
+.morrow-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 23px; margin-top: 16px; }
+.morrow-feature .morrow-links .case-link { margin: 8px 0; color: #493024; font-size: 12px; min-height: 44px; }
+.morrow-source { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; font-size: 12px; text-decoration: underline; text-underline-offset: 5px; }
+.morrow-preview { min-width: 0; }
+.morrow-preview-note { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 17px; font-size: 9px; letter-spacing: .06em; }
+.morrow-preview-note > span:last-child { color: #775d4c; }
+.morrow-stage { position: relative; perspective: 1300px; padding: 14px 0 17px; }
+.showcase-tilt-plane { transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); transform-style: preserve-3d; }
+.morrow-stage .showcase-tilt-plane { transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) rotate(-1.7deg); }
+.morrow-screen { position: relative; background: #f7f3ed; border: 1px solid #bca58e; border-radius: 12px; box-shadow: 5px 8px 0 #c5ad9666, 0 18px 38px #593e2422; overflow: hidden; color: #342a23; font-family: 'Manrope', sans-serif; }
+.morrow-window-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; height: 32px; padding: 0 14px; font-size: 8px; letter-spacing: .025em; border-bottom: 1px solid #ded1c2; background: #eee5d9; }
+.window-dots { display: inline-flex; gap: 4px; }
+.window-dots i { width: 5px; height: 5px; background: #bd9a7c; border-radius: 50%; }
+.morrow-app { display: grid; grid-template-columns: 112px minmax(0, 1fr); min-height: 386px; }
+.morrow-sidebar { padding: 19px 9px 12px; background: #f0e8dc; border-right: 1px solid #e3d7c9; display: flex; flex-direction: column; gap: 7px; }
+.morrow-mini-brand { display: flex; align-items: center; gap: 5px; margin: 0 0 14px; font-size: 14px; letter-spacing: -.06em; font-weight: 800; }
+.morrow-mini-brand img { width: 25px; height: 25px; }
+.morrow-sidebar-label { font-size: 6px; color: #806850; letter-spacing: .1em; padding: 6px; }
+.morrow-sidebar > span:not(.morrow-sidebar-label) { display: flex; align-items: center; gap: 5px; padding: 7px 5px; border-radius: 5px; font-size: 8px; font-weight: 600; white-space: nowrap; }
+.morrow-sidebar > span.active { color: #a1411d; background: #e9c6a95c; }
+.morrow-sidebar > small { margin-top: auto; padding: 15px 6px 0; font-size: 7px; color: #6c5c50; }
+.morrow-avatar { flex: none; display: inline-block; width: 35px; height: 35px; background-image: url('/assets/morrow/crew.webp'); background-size: 470% 470%; background-repeat: no-repeat; background-position: var(--avatar-x, 2.36%) var(--avatar-y, 2.36%); }
+.morrow-sidebar .morrow-avatar { width: 23px; height: 23px; }
+.morrow-app-main { min-width: 0; padding: 20px 18px 14px; }
+.morrow-app-topline { display: flex; justify-content: space-between; align-items: center; gap: 8px; color: #725d4e; font-size: 7px; margin-bottom: 16px; }
+.morrow-sample-label { padding: 3px 6px; border: 1px solid #d8bca3; background: #f7e5d2; color: #83421f; white-space: nowrap; border-radius: 3px; }
+.morrow-view-panel { min-height: 305px; }
+.morrow-view-panel[hidden] { display: none; }
+.morrow-view-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 13px; gap: 10px; }
+.morrow-view-heading h4 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -.05em; }
+.morrow-view-heading > span { font-size: 7px; color: #725d4e; }
+.morrow-dashboard-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 10px; }
+.morrow-next-move { position: relative; min-height: 128px; padding: 15px 13px; background: #f1d3b7; border: 1px solid #dfb58e; border-radius: 9px; overflow: hidden; }
+.morrow-next-move > span { display: block; font-size: 7px; letter-spacing: .06em; }
+.morrow-next-move strong { position: relative; z-index: 1; display: block; font-size: clamp(14px, 1.5vw, 22px); line-height: 1.17; letter-spacing: -.055em; margin: 13px 0 14px; }
+.morrow-next-move > small { display: inline-block; background: #a1411d; color: #fff6ee; font-size: 6px; padding: 6px 8px; border-radius: 4px; }
+.morrow-next-move img { position: absolute; right: -10px; bottom: -8px; width: 98px; height: 98px; transform: rotate(-8deg); opacity: .95; }
+.morrow-preview-tasks { background: #fffdf9; border: 1px solid #e2d6c8; padding: 11px 10px; border-radius: 9px; font-size: 7px; }
+.morrow-preview-tasks strong { font-size: 9px; display: block; margin-bottom: 12px; }
+.morrow-preview-tasks > span { display: flex; align-items: center; gap: 5px; margin: 10px 0; }
+.morrow-preview-tasks i { display: grid; place-items: center; width: 13px; height: 13px; border-radius: 50%; border: 1px solid #be9a77; font-style: normal; color: #a1411d; }
+.morrow-chart { grid-column: 1 / -1; padding: 12px; border: 1px solid #e2d6c8; border-radius: 9px; background: #fffdf9; }
+.morrow-chart-label { display: flex; justify-content: space-between; font-size: 8px; }
+.morrow-chart-label small { color: #725d4e; font-size: 6px; }
+.morrow-chart svg { display: block; width: 100%; height: 76px; margin-top: 5px; overflow: visible; }
+.morrow-chart .chart-grid { stroke: #e8dbcc; stroke-width: 1; }
+.morrow-chart .story-line { stroke: #ae522a; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.story-line { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.morrow-chart-days { display: flex; justify-content: space-between; font-size: 6px; color: #725d4e; }
+.morrow-view-caption { margin-top: 10px; font-size: 7px; line-height: 1.5; color: #725d4e; }
+.morrow-crew-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.morrow-agent { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; min-height: 92px; text-align: left; padding: 10px; border: 1px solid #e1d2c2; border-radius: 7px; background: #fffdf9; transition: background .18s, border-color .18s; }
+.morrow-agent:hover, .morrow-agent[aria-pressed='true'] { background: #f9e5d1; border-color: #b4653d; }
+.morrow-agent .morrow-avatar { width: 38px; height: 38px; margin-bottom: 5px; }
+.morrow-agent strong { font-size: 8px; line-height: 1.4; }
+.morrow-agent small { display: block; font-size: 6px; margin-top: 3px; color: #705947; }
+.morrow-agent-detail { margin-top: 11px; padding: 10px; border-radius: 5px; background: #efe4d6; color: #725039; font-size: 8px; line-height: 1.6; min-height: 47px; }
+.morrow-learning-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #f3dcc3; border: 1px solid #dfbfa0; border-radius: 9px; padding: 15px; }
+.morrow-learning-banner small { font-size: 6px; letter-spacing: .07em; }
+.morrow-learning-banner strong { display: block; margin: 9px 0 6px; font-size: 20px; line-height: 1.12; letter-spacing: -.04em; }
+.morrow-learning-banner p { font-size: 7px; }
+.morrow-learning-banner .morrow-avatar { width: 90px; height: 90px; }
+.morrow-learning-track { display: grid; gap: 7px; margin-top: 12px; }
+.morrow-learning-track > div { display: grid; grid-template-columns: 21px 1fr auto; align-items: center; gap: 8px; padding: 10px; border: 1px solid #e3d6c8; background: #fffdf9; border-radius: 6px; }
+.morrow-learning-track b { font-size: 9px; color: #a1411d; }
+.morrow-learning-track strong { font-size: 8px; }
+.morrow-learning-track small { display: block; font-size: 6px; color: #725d4e; margin-top: 3px; }
+.morrow-learning-track > div > span:last-child { font-size: 10px; }
+.morrow-view-controls { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 13px; }
+.morrow-tabs { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid #bca68f; border-radius: 4px; }
+.morrow-tabs button { min-height: 44px; padding: 8px 15px; background: transparent; color: #67452e; font-size: 11px; border-radius: 2px; transition: color .18s, background .18s; }
+.morrow-tabs button[aria-selected='true'] { color: #fff9f0; background: #673d25; }
+.morrow-tabs button:not([aria-selected='true']):hover { background: #e5ccb6; }
+.showcase-replay { display: inline-flex; justify-content: center; align-items: center; width: 44px; height: 44px; flex: none; border: 1px solid currentColor; background: transparent; color: inherit; border-radius: 50%; transition: background .18s; }
+.showcase-replay svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }
+.showcase-replay:hover { background: #ffffff45; }
+.showcase-replay[aria-busy='true'] svg { transform: rotate(-45deg); }
+.morrow-footer { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; padding-top: 23px; border-top: 1px solid #b8a18b77; }
+.morrow-capability-line { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 10px; letter-spacing: .05em; }
+.morrow-capability-line i { font-style: normal; color: #a46037; }
+.morrow-footer > p { max-width: 260px; font-size: 10px; line-height: 1.7; color: #755b45; }
+
+/* The commerce illustrations inherit the project's sage and lilac materials. */
+.product-work.is-showcase .product-feature { position: relative; overflow: clip; padding: 28px; }
+.product-work.is-showcase .product-feature h4 { margin-top: 20px; }
+.product-work.is-showcase .product-feature .product-context { font-size: clamp(24px, 2.3vw, 34px); margin-bottom: 8px; }
+.product-art { position: relative; margin: 18px -4px 23px; border: 1px solid #52644d35; background: #cbd8be; border-radius: 6px; padding: 16px; min-height: 265px; perspective: 900px; }
+.product-kuberha .product-art { background: #d5c9e1; border-color: #705b8235; }
+.product-art-topline { display: flex; justify-content: space-between; gap: 10px; font-size: 7px; letter-spacing: .09em; }
+.commerce-plane { height: 214px; margin-top: 8px; }
+.commerce-plane > .story-layer { position: absolute; inset: 0; pointer-events: none; }
+.commerce-dashboard { position: absolute; left: 7%; top: 23px; width: 76%; height: 164px; padding: 12px; background: #f4f4e8; border: 1px solid #819374; border-radius: 5px; box-shadow: 5px 7px 0 #6f835447, 0 15px 20px #31432720; transform: rotate(-5deg); }
+.product-kuberha .commerce-dashboard { background: #f6f0f9; border-color: #aa93b9; box-shadow: 5px 7px 0 #9985b34d, 0 15px 20px #50376320; transform: rotate(4deg); }
+.commerce-dash-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #899c7d44; padding-bottom: 9px; font-size: 8px; }
+.commerce-dash-header strong { font-size: 11px; letter-spacing: -.03em; }
+.commerce-dash-body { display: grid; grid-template-columns: 56px 1fr; gap: 15px; margin-top: 12px; }
+.commerce-rail { display: flex; flex-direction: column; gap: 10px; font-size: 6px; color: #65715c; }
+.commerce-rail span:first-child { color: #364a2c; font-weight: 600; }
+.commerce-summary > strong { font-size: 8px; font-weight: 600; }
+.commerce-bars { height: 62px; display: flex; align-items: end; gap: 7px; border-bottom: 1px solid #c6ceb9; margin-top: 8px; padding: 0 3px; }
+.commerce-bars i { flex: 1; background: #91a772; border: 1px solid #798e5b; border-bottom: 0; height: var(--bar-height, 50%); border-radius: 3px 3px 0 0; }
+.product-kuberha .commerce-bars i { background: #b5a1c7; border-color: #9b80b1; }
+.commerce-float { position: absolute; right: 0; top: 73px; width: 40%; padding: 11px; border: 1px solid #9baa8b; background: #f7f5de; box-shadow: 0 8px 20px #37472126; border-radius: 5px; transform: rotate(6deg); }
+.product-kuberha .commerce-float { background: #f4e7d2; border-color: #c1a47b; transform: rotate(-5deg); }
+.commerce-float > span { font-size: 6px; letter-spacing: .09em; color: #657451; }
+.commerce-float > strong { display: block; margin: 6px 0 9px; font-size: 11px; line-height: 1.3; }
+.commerce-float > p { display: flex; gap: 5px; align-items: center; font-size: 7px; line-height: 1.8; }
+.commerce-float > p i { width: 5px; height: 5px; border: 1px solid #708c56; background: #a5be87; border-radius: 50%; }
+.commerce-app-tag { position: absolute; bottom: 0; left: 4%; display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; background: #385237; border: 1px solid #2f452d; color: #f4f7df; font-size: 8px; box-shadow: 3px 4px 0 #b4c4a0; transform: rotate(-3deg); }
+.product-kuberha .commerce-app-tag { background: #675075; border-color: #503d5b; box-shadow: 3px 4px 0 #bba3c8; }
+.commerce-connector { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.commerce-connector path { stroke: #607a47; stroke-width: 1.3; fill: none; }
+.product-kuberha .commerce-connector path { stroke: #897096; }
+.product-art-replay { position: absolute; width: 32px; height: 32px; min-width: 44px; min-height: 44px; right: 7px; bottom: 2px; color: #42553b; border-color: transparent; }
+.product-kuberha .product-art-replay { color: #634a72; }
+.product-art-replay svg { width: 16px; height: 16px; }
+.product-work.is-showcase .product-workflow { padding-top: 19px; }
+.product-work.is-showcase .product-feature > p:not(.product-context) { font-size: 14px; line-height: 1.8; }
+.product-work.is-showcase .product-integrations { padding-top: 22px; }
+.evaluation-blueprint[data-product-story] { position: relative; }
+.evaluation-blueprint .blueprint-replay { width: 36px; height: 36px; min-height: 44px; min-width: 44px; margin: 6px auto 0; border-color: #a4b29a; }
+
+@media (min-width: 1550px) {
+  .morrow-app { grid-template-columns: 130px minmax(0, 1fr); min-height: 430px; }
+  .morrow-view-panel { min-height: 345px; }
+  .morrow-next-move { min-height: 160px; }
+  .morrow-chart svg { height: 100px; }
+}
+@media (max-width: 1100px) {
+  .morrow-layout { grid-template-columns: 1fr; gap: 24px; }
+  .morrow-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 0 26px; padding-bottom: 0; }
+  .morrow-brand { grid-column: 1; }
+  .morrow-promise { grid-column: 1; grid-row: 2 / 4; }
+  .morrow-copy > p:not(.morrow-promise) { grid-column: 2; grid-row: 1; margin-top: 0; max-width: none; align-self: center; }
+  .morrow-scope { grid-column: 2; grid-row: 2; margin-top: 0; }
+  .morrow-links { grid-column: 2; grid-row: 3; }
+  .morrow-preview { max-width: 750px; width: 100%; justify-self: center; }
+  .morrow-next-move strong { font-size: 23px; }
+  .morrow-stage { padding-inline: 8px; }
+  .product-work.is-showcase .product-feature { padding: 22px; }
+  .commerce-dashboard { left: 0; width: 82%; }
+  .commerce-float { width: 48%; }
+}
+@media (max-width: 767px) {
+  .work-jumps { gap: 0 18px; }
+  .work-jumps a { font-size: 11px; gap: 7px; }
+  .morrow-feature { padding: 22px; }
+  .morrow-layout { padding-top: 24px; }
+  .morrow-feature-top { font-size: 8px; padding-bottom: 18px; }
+  .morrow-copy { display: block; }
+  .morrow-brand { margin-bottom: 18px; }
+  .morrow-brand h3 { font-size: 61px; }
+  .morrow-copy > p:not(.morrow-promise) { margin-top: 20px; max-width: 560px; font-size: 15px; }
+  .morrow-promise { font-size: 29px; }
+  .morrow-scope { margin-top: 19px; }
+  .morrow-preview-note { margin-bottom: 10px; font-size: 7px; }
+  .morrow-app { grid-template-columns: 82px minmax(0, 1fr); }
+  .morrow-sidebar { padding-inline: 6px; }
+  .morrow-mini-brand { font-size: 11px; gap: 3px; }
+  .morrow-mini-brand img { width: 20px; height: 20px; }
+  .morrow-sidebar > span:not(.morrow-sidebar-label) { font-size: 7px; gap: 2px; }
+  .morrow-sidebar .morrow-avatar { width: 18px; height: 18px; }
+  .morrow-app-main { padding: 15px 12px; }
+  .morrow-next-move strong { font-size: 19px; }
+  .morrow-next-move img { width: 80px; height: 80px; }
+  .morrow-dashboard-grid { gap: 7px; }
+  .morrow-tabs button { padding-inline: 11px; font-size: 10px; }
+  .morrow-footer { grid-template-columns: 1fr; gap: 13px; }
+  .morrow-footer > p { max-width: none; }
+  .morrow-capability-line { gap: 10px; font-size: 9px; }
+}
+@media (max-width: 600px) {
+  .morrow-feature { padding: 20px; }
+  .morrow-app { display: block; }
+  .morrow-sidebar { display: none; }
+  .morrow-stage { padding: 6px 0 12px; }
+  .morrow-stage .showcase-tilt-plane { transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)); }
+  .morrow-app-main { padding: 15px 12px 12px; }
+  .morrow-next-move { padding: 12px; min-height: 128px; }
+  .morrow-next-move strong { font-size: 17px; }
+  .morrow-next-move img { width: 72px; height: 72px; opacity: .6; }
+  .morrow-view-heading h4 { font-size: 23px; }
+  .morrow-view-panel { min-height: 320px; }
+  .morrow-chart svg { height: 77px; }
+  .morrow-view-caption { font-size: 8px; }
+  .morrow-crew-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .morrow-agent { min-height: 71px; padding: 8px; flex-direction: row; align-items: center; gap: 7px; }
+  .morrow-agent .morrow-avatar { width: 32px; height: 32px; margin-bottom: 0; }
+  .morrow-agent strong { font-size: 10px; }
+  .morrow-agent small { display: none; }
+  .morrow-agent-detail { font-size: 9px; }
+  .morrow-tabs { gap: 1px; padding: 3px; flex: 1; flex-wrap: nowrap; }
+  .morrow-tabs button { padding-inline: 7px; flex: 1; font-size: 10px; }
+  .morrow-view-controls { gap: 8px; }
+  .morrow-learning-banner .morrow-avatar { width: 68px; height: 68px; }
+  .morrow-learning-banner { padding: 12px; }
+  .morrow-learning-banner strong { font-size: 20px; }
+  .morrow-learning-track { gap: 8px; }
+  .morrow-learning-track > div { padding: 12px 10px; }
+  .morrow-learning-track strong { font-size: 9px; }
+  .morrow-learning-track small { font-size: 7px; }
+  .product-work.is-showcase .product-feature { padding: 23px; }
+  .product-work.is-showcase .product-feature > p:not(.product-context) { font-size: 16px; }
+  .product-art { margin-inline: -4px; }
+}
+@media (max-width: 360px) {
+  .morrow-feature { padding: 16px; }
+  .morrow-feature-top { font-size: 7px; }
+  .morrow-brand h3 { font-size: 54px; }
+  .morrow-copy > p:not(.morrow-promise) { font-size: 15px; }
+  .morrow-tabs button { padding-inline: 4px; font-size: 9px; }
+  .morrow-next-move { padding: 10px; }
+  .morrow-next-move strong { font-size: 16px; }
+  .morrow-next-move img { width: 60px; height: 60px; }
+  .morrow-preview-tasks { padding: 10px 8px; }
+  .morrow-app-main { padding-inline: 10px; }
+  .morrow-agent { padding: 7px 5px; gap: 4px; }
+  .morrow-agent .morrow-avatar { width: 28px; height: 28px; }
+  .commerce-dashboard { width: 86%; }
+  .commerce-dash-body { grid-template-columns: 44px 1fr; gap: 8px; }
+  .commerce-float { width: 49%; }
+}
+@media (max-width: 400px) {
+  .hero .hero-product-note { margin-top: 6px; padding-top: 6px; }
+}
+.no-motion .showcase-tilt-plane { --tilt-x: 0deg !important; --tilt-y: 0deg !important; }
+.no-motion .morrow-tabs button, .no-motion .morrow-agent, .no-motion .showcase-replay { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .showcase-tilt-plane { --tilt-x: 0deg !important; --tilt-y: 0deg !important; }
+  .morrow-tabs button, .morrow-agent, .showcase-replay { transition: none; }
+}

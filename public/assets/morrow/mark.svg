@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="mw-coin" x1="32" y1="3" x2="32" y2="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f6ad70"/><stop offset=".5" stop-color="#df7a44"/><stop offset="1" stop-color="#b54c24"/>
+    </linearGradient>
+    <radialGradient id="mw-depth" cx="32" cy="60" r="38" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7d3414" stop-opacity=".4"/><stop offset="1" stop-color="#7d3414" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mw-gloss" x1="32" y1="5" x2="32" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff3e0" stop-opacity=".55"/><stop offset="1" stop-color="#fff3e0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mw-sun" x1="32" y1="22" x2="32" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe29a"/><stop offset="1" stop-color="#ffbe4a"/>
+    </linearGradient>
+    <linearGradient id="mw-ivory" x1="32" y1="19" x2="32" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffbf3"/><stop offset="1" stop-color="#ffe9cc"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="34" r="29.5" fill="#6b2d12" fill-opacity=".22"/>
+  <circle cx="32" cy="32.5" r="29.5" fill="url(#mw-coin)"/>
+  <circle cx="32" cy="32.5" r="29.5" fill="url(#mw-depth)"/>
+  <ellipse cx="32" cy="15" rx="21" ry="10.5" fill="url(#mw-gloss)"/>
+  <circle cx="32" cy="32.5" r="29" stroke="#9c4119" stroke-opacity=".5"/>
+  <circle cx="32" cy="30.8" r="6.8" fill="#8a3b19" fill-opacity=".3"/>
+  <circle cx="32" cy="29.5" r="6.8" fill="url(#mw-sun)"/>
+  <path d="M17.5 46.4V24.4l14.5 15.5L46.5 24.4v22" stroke="#8a3b19" stroke-opacity=".32" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17.5 45V23l14.5 15.5L46.5 23v22" stroke="url(#mw-ivory)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

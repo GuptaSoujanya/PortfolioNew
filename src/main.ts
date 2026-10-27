@@ -4,21 +4,22 @@ import './chapters.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from './projects';
-import { createPlayground } from './playground';
 import { createChapters } from './chapters';
 import { createHeroStage } from './hero-stage';
 import { createIdeaDesk } from './idea-desk';
 import { createWorkStage } from './work-stage';
+import { createProductShowcase } from './product-showcase';
 import { createWorkFilters } from './work-filters';
 import { createLowerChapters } from './lower-chapters';
 import { createCursor } from './cursor';
 import { createCareerStage } from './career-stage';
 import { createKineticType } from './kinetic-type';
 import { createEditorialGraphics } from './editorial-graphics';
-import { createMotionTrace } from './motion-trace';
 import { createPencilMark } from './pencil-mark';
 import './pencil-type.css';
 import './section-density.css';
+import './recruiter-content.css';
+import './showcase-polish.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,18 +30,17 @@ try {
 } catch { /* The site works when browser storage is unavailable. */ }
 let motionEnabled = userMotionEnabled && !reducedMotion.matches;
 
-let playground: ReturnType<typeof createPlayground> | undefined;
 let chapters: ReturnType<typeof createChapters> | undefined;
 let heroStage: ReturnType<typeof createHeroStage> | undefined;
 let ideaDesk: ReturnType<typeof createIdeaDesk> | undefined;
 let workStage: ReturnType<typeof createWorkStage> | undefined;
+let productShowcase: ReturnType<typeof createProductShowcase> | undefined;
 let workFilters: ReturnType<typeof createWorkFilters> | undefined;
 let lowerChapters: ReturnType<typeof createLowerChapters> | undefined;
 let cursor: ReturnType<typeof createCursor> | undefined;
 let careerStage: ReturnType<typeof createCareerStage> | undefined;
 let kineticType: ReturnType<typeof createKineticType> | undefined;
 let editorialGraphics: ReturnType<typeof createEditorialGraphics> | undefined;
-let motionTrace: ReturnType<typeof createMotionTrace> | undefined;
 let pencilMark: ReturnType<typeof createPencilMark> | undefined;
 const motionButton = document.querySelector<HTMLButtonElement>('#motion-toggle')!;
 let animationContext: gsap.Context | undefined;
@@ -52,18 +52,17 @@ function setMotion(enabled: boolean, persist = false) {
   motionButton.setAttribute('aria-pressed', String(!motionEnabled));
   motionButton.querySelector('.motion-label')!.textContent = motionEnabled ? 'Motion on' : 'Motion off';
   motionButton.setAttribute('aria-label', motionEnabled ? 'Pause animations' : 'Enable animations');
-  playground?.setMotion(motionEnabled);
   chapters?.setMotion(motionEnabled);
   heroStage?.setMotion(motionEnabled);
   ideaDesk?.setMotion(motionEnabled);
   workStage?.setMotion(motionEnabled);
+  productShowcase?.setMotion(motionEnabled);
   workFilters?.setMotion(motionEnabled);
   lowerChapters?.setMotion(motionEnabled);
   cursor?.setMotion(motionEnabled);
   careerStage?.setMotion(motionEnabled);
   kineticType?.setMotion(motionEnabled);
   editorialGraphics?.setMotion(motionEnabled);
-  motionTrace?.setMotion(motionEnabled);
   pencilMark?.setMotion(motionEnabled);
   if (!motionEnabled) {
     animationContext?.revert();
@@ -82,6 +81,7 @@ setMotion(motionEnabled);
 heroStage = createHeroStage(motionEnabled);
 ideaDesk = createIdeaDesk(motionEnabled);
 workStage = createWorkStage(motionEnabled);
+productShowcase = createProductShowcase(motionEnabled);
 workFilters = createWorkFilters(motionEnabled);
 const revealDeskProject = (event: Event) => {
   const link = (event.target as Element).closest<HTMLAnchorElement>('.idea-desk-explore');
@@ -162,17 +162,6 @@ motionButton.addEventListener('click', () => {
 });
 reducedMotion.addEventListener('change', () => setMotion(userMotionEnabled));
 
-playground = createPlayground(document.querySelector<HTMLElement>('#lab-bounds')!, motionEnabled);
-motionTrace = createMotionTrace(motionEnabled);
-document.querySelector('#shake-lab')!.addEventListener('click', () => playground?.shake());
-document.querySelector('#reset-lab')!.addEventListener('click', () => playground?.reset());
-document.querySelector<HTMLButtonElement>('#gravity-toggle')!.addEventListener('click', event => {
-  const button = event.currentTarget as HTMLButtonElement;
-  const enabled = button.getAttribute('aria-pressed') !== 'true';
-  button.setAttribute('aria-pressed', String(enabled));
-  button.innerHTML = `<span class="gravity-dot"></span>Gravity ${enabled ? 'on' : 'off'}`;
-  playground?.setGravity(enabled);
-});
 chapters = createChapters(motionEnabled);
 
 function updateTime() {
@@ -248,18 +237,25 @@ document.querySelectorAll<HTMLButtonElement>('.project-open').forEach(button => 
       <h2 id="dialog-title">${project.title}</h2>
       <p class="dialog-subtitle">${project.subtitle}</p>
       <div class="project-tags">${project.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
-      <h3>The idea</h3><p>${project.overview}</p>
+      ${project.context ? `<h3>The product</h3><p>${project.context.text}</p><p><a class="dialog-source" href="${project.context.href}" target="_blank" rel="noreferrer">${project.context.label} ↗</a></p>` : ''}
+      <h3>My contribution</h3><p>${project.overview}</p>
       <h3>How it comes together</h3><p>${project.approach}</p>
       <div class="dialog-flow">${project.flow.map(step => `<span>${step}</span>`).join('')}</div>
       ${project.note ? `<p class="dialog-note">${project.note}</p>` : ''}
-      <div class="dialog-actions">${project.link ? `<a class="button button-dark" href="${project.link.href}" target="_blank" rel="noreferrer">${project.link.label}${arrow}</a>` : ''}<a class="dialog-source" href="mailto:soujanyagupta.dev@gmail.com?subject=${encodeURIComponent(`Let's talk about ${project.title}`)}">Ask me about this project ↗</a></div>`;
+      <div class="dialog-actions">${project.link ? `<a class="button button-dark" href="${project.link.href}" target="_blank" rel="noreferrer">${project.link.label}${arrow}</a>` : ''}<a class="dialog-source" href="mailto:semrisoujanya2003@gmail.com?subject=${encodeURIComponent(`Let's talk about ${project.title}`)}">Ask me about this project ↗</a></div>`;
     dialog.showModal();
     dialog.scrollTop = 0;
     document.body.style.overflow = 'hidden';
   });
 });
 
-dialog.querySelector('.dialog-close')!.addEventListener('click', () => dialog.close());
+function closeProject() {
+  dialog.close();
+  document.body.style.overflow = '';
+  projectOpener?.focus({ preventScroll: true });
+}
+dialog.querySelector('.dialog-close')!.addEventListener('click', closeProject);
+dialog.addEventListener('cancel', event => { event.preventDefault(); closeProject(); });
 dialog.addEventListener('keydown', event => {
   if (event.key !== 'Tab') return;
   const focusable = [...dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')];
@@ -276,11 +272,19 @@ dialog.addEventListener('keydown', event => {
 dialog.addEventListener('click', event => {
   if (event.target !== dialog) return;
   const rect = dialog.getBoundingClientRect();
-  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closeProject();
 });
 dialog.addEventListener('close', () => {
+  if (dialog.open) return;
   document.body.style.overflow = '';
   projectOpener?.focus({ preventScroll: true });
+});
+
+document.querySelectorAll<HTMLAnchorElement>('a[href^="#career-role-"]').forEach(link => {
+  link.addEventListener('click', () => {
+    const index = link.hash.replace('#career-role-', '');
+    document.querySelector<HTMLButtonElement>(`.career-chapter-button[data-career-index="${index}"]`)?.click();
+  });
 });
 
 document.querySelectorAll('.experience-item').forEach(item => {
@@ -298,7 +302,7 @@ function showToast(message: string) {
 
 document.querySelector<HTMLButtonElement>('.copy-email')!.addEventListener('click', async () => {
   try {
-    await navigator.clipboard.writeText('soujanyagupta.dev@gmail.com');
+    await navigator.clipboard.writeText('semrisoujanya2003@gmail.com');
     showToast('Email copied. Let’s make something good.');
   } catch {
     showToast('You can select the email address to copy it, or click it to write to me.');
@@ -309,19 +313,18 @@ document.querySelector('#year')!.textContent = String(new Date().getFullYear());
 
 if (import.meta.hot) {
   import.meta.hot.dispose(() => {
-    playground?.dispose();
     chapters?.dispose();
     heroStage?.destroy();
     ideaDesk?.destroy();
     document.querySelector('#idea-desk')!.removeEventListener('click', revealDeskProject);
     workStage?.destroy();
+    productShowcase?.destroy();
     workFilters?.destroy();
     lowerChapters?.destroy();
     cursor?.destroy();
     careerStage?.destroy();
     kineticType?.destroy();
     editorialGraphics?.destroy();
-    motionTrace?.destroy();
     pencilMark?.destroy();
     clearInterval(timeInterval);
     cancelAnimationFrame(scrollFrame);

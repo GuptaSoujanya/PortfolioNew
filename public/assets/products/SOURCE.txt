@@ -1,0 +1,6 @@
+Official product icons, fetched 28 October 2026 from Google Play. Original images preserved; extensions match the returned file types.
+MyMandi listing: https://play.google.com/store/apps/details?id=com.mandi.mandiweb
+mymandi.jpg: https://play-lh.googleusercontent.com/rAOgxTcgPu03jq-4oJhqAH_iNi1LIfPmQcvknJ-_ZFt46co-Y-tuA5ofamrGSQX4Gg3b=w240-h480
+Kuberha listing: https://play.google.com/store/apps/details?id=com.kuberha.app
+kuberha.png: https://play-lh.googleusercontent.com/cwnOVfD3J1FMbqu50ZQRc7eFfPHLe-t303rkD7rcJjx7IKy08dEo63Nsn6drjkdsG_w=w240-h480
+The dashboard scenes are authored illustrations, not screenshots of private product interfaces. Logos identify the products described in the owner's professional work.

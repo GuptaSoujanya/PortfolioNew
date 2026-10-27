@@ -1,0 +1,7 @@
+Morrow brand and illustration assets, used to present the owner's project.
+Source: https://github.com/GuptaSoujanya/Morrow-frontend/tree/85f6be68a4eae4ea26c9ea6504fc8e4a88a6bc02/app/assets
+mark.svg = morrow-mark.svg
+mascot.webp = morrow-mascot.webp
+crew.webp = morrow-crew-warm.webp
+Fetched 28 October 2026. Original files preserved without image edits.
+The portfolio UI preview is an authored, source-informed illustration with sample content; it is not a live workspace.

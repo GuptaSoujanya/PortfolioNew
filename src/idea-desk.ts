@@ -1,16 +1,16 @@
 import './idea-desk.css';
-import { signalForm, learningForm, interfaceForm } from './idea-forms';
+import { signalForm, learningForm, evaluationForm } from './idea-forms';
 
-type ProjectKey = 'evalagent' | 'cohart' | 'agui';
+type ProjectKey = 'wildclaw' | 'evalagent' | 'cohart';
 type Sketch = { key: ProjectKey; name: string; caption: string; href: string; label: string; artwork: () => string };
 type InkPath = { element: SVGPathElement; length: number; start: number; offset: number; block?: HTMLElement };
 type DiagramReveal = { element: SVGElement; at: number; opacity: number };
 type Solid = { element: HTMLElement; at: number; rise: number; shown: number };
 
 const sketches: Sketch[] = [
+  { key: 'wildclaw', name: 'Agent evaluation platform', caption: 'Test behavior. Grade evidence. Track cost.', href: '#wildclaw-heading', label: 'Evaluation', artwork: evaluationForm },
   { key: 'evalagent', name: 'EvalAgentFlow', caption: 'Eight agents. One clear result.', href: '#eval-heading', label: 'Agents', artwork: signalForm },
   { key: 'cohart', name: 'Cohart', caption: 'Learn it. Try it. Build it.', href: '#cohart-heading', label: 'Learning', artwork: learningForm },
-  { key: 'agui', name: 'Agent-Driven Portfolio', caption: 'An interface shaped by your intent.', href: '#agui-heading', label: 'Interfaces', artwork: interfaceForm },
 ];
 
 /** A finite, real SVG drawing sequence; the pen follows the visible ink exactly. */

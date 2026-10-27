@@ -1,0 +1,5 @@
+Original brand assets, fetched 28 October 2026.
+google-sheets.png: https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png
+gmail.png: https://www.gstatic.com/images/branding/product/2x/gmail_2020q4_48dp.png
+shiprocket.svg: https://sr-website-01.shiprocket.in/sr-website/shiprocket_logo-1-TWLqUy.svg (linked from https://www.shiprocket.in/)
+Google Sheets and Shiprocket are named in the owner's supplied work history. Gmail illustrates the email-app category and is explicitly labeled as an illustration; a specific Gmail integration is not independently verified. Other icons are original SVG workflow-category symbols. The 100+ figure is owner-supplied and combined across MyMandi and Kuberha.
