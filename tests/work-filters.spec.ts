@@ -3,9 +3,9 @@ import { test, expect, type Page } from '@playwright/test';
 test.use({ viewport: { width: 1440, height: 1100 }, reducedMotion: 'no-preference' });
 
 const expectedProjects = {
-  all: ['evalagent', 'cohart', 'agui'],
-  ai: ['evalagent', 'agui'],
-  web: ['cohart', 'agui'],
+  all: ['evalagent', 'cohart', 'ridemate'],
+  ai: ['evalagent'],
+  web: ['cohart', 'ridemate'],
 };
 type Filter = keyof typeof expectedProjects;
 
@@ -33,7 +33,7 @@ async function expectSettled(page: Page, filter: Filter) {
   expect(leftovers, 'Finishing a filter change must restore interactive cards and remove transient artwork styles.').toEqual([]);
   for (const card of await page.locator('.project-card:not([hidden])').all()) {
     await expect(card).toHaveCSS('opacity', '1');
-    await expect(card.locator('.case-scene')).toHaveCSS('opacity', '1');
+    await expect(card.locator('.case-scene, .ride-diagram')).toHaveCSS('opacity', '1');
   }
 }
 
@@ -79,7 +79,7 @@ test('filters animate outgoing cards and incoming scenes while preserving catego
   await expectSettled(page, 'web');
   await expect(web).toBeFocused();
 
-  const all = page.getByRole('button', { name: /All work/ });
+  const all = page.getByRole('button', { name: /All projects/ });
   await all.focus();
   await page.keyboard.press('Enter');
   await expectSettled(page, 'all');
@@ -143,7 +143,7 @@ test('pause, reduced motion, and resizing finish the latest selection without st
 
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.getByRole('button', { name: 'Enable animations', exact: true }).dispatchEvent('click');
-  await page.getByRole('button', { name: /All work/ }).dispatchEvent('click');
+  await page.getByRole('button', { name: /All projects/ }).dispatchEvent('click');
   await expect(page.locator('#work')).toHaveAttribute('data-filter-state', 'entering');
   await page.setViewportSize({ width: 390, height: 900 });
   await expectSettled(page, 'all');

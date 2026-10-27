@@ -11,8 +11,8 @@ async function loadHero(page: Page) {
 
 async function expectHeroReadable(page: Page) {
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-  await expect(page.locator('.hero-display')).toContainText('CODE.');
-  await expect(page.locator('.hero-script')).toContainText('Curiosity.');
+  await expect(page.locator('.hero-display')).toContainText('BUILD.');
+  await expect(page.locator('.hero-script')).toContainText('Understand.');
   await expect(page.locator('.hero-display .kinetic-unit').first()).toBeVisible();
   await expect.poll(() => page.locator('.hero-display .kinetic-unit, .hero-display .kinetic-word').evaluateAll(elements =>
     elements.filter(element => {
@@ -44,13 +44,13 @@ test('replaying the hero visibly animates its text and finishes with every word 
 
   // Visual words and their rolling duplicates must retain a single name.
   const navigation = page.getByRole('navigation', { name: 'Main navigation', exact: true });
-  await expect(navigation.locator('a[href="#work"]')).toHaveAccessibleName('Work 03');
-  await expect(navigation.locator('a[href="#about"]')).toHaveAccessibleName('Human');
-  await expect(navigation.locator('a[href="#play"]')).toHaveAccessibleName('Play');
-  await expect(navigation.locator('a[href="#experience"]')).toHaveAccessibleName('Journey');
+  await expect(navigation.locator('a[href="#work"]')).toHaveAccessibleName('Work');
+  await expect(navigation.locator('a[href="#about"]')).toHaveAccessibleName('About');
+  await expect(navigation.locator('a[href="#github"]')).toHaveAccessibleName('GitHub');
+  await expect(navigation.locator('a[href="#experience"]')).toHaveAccessibleName('Experience');
   await expect(page.locator('.contact-nav')).toHaveAccessibleName('Let’s talk');
   await navigation.locator('a[href="#about"]').hover();
-  await expect(navigation.locator('a[href="#about"]')).toHaveAccessibleName('Human');
+  await expect(navigation.locator('a[href="#about"]')).toHaveAccessibleName('About');
   await expect(navigation.locator('a[href="#about"]')).toHaveAttribute('href', '#about');
 });
 

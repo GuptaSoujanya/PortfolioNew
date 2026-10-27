@@ -21,16 +21,6 @@ test('mouse hints follow the actual action and clear over ordinary content', asy
   await page.locator('#eval-heading').hover();
   await expect(hint).toHaveCSS('opacity', '0');
 
-  // Keep cursor motion enabled while making the hover target stationary.
-  // Switching gravity off imparts a floating velocity, so reset it afterward.
-  await page.getByRole('button', { name: 'Gravity on', exact: true }).click();
-  await expect(page.locator('#gravity-toggle')).toHaveAttribute('aria-pressed', 'false');
-  await page.getByRole('button', { name: 'Reset playground', exact: true }).click();
-  const token = page.getByRole('button', { name: 'Play with React token', exact: true });
-  await token.hover();
-  await expect(hint).toHaveCSS('opacity', '1');
-  await expect(text).toHaveText('DRAG');
-
   await page.locator('.social-links').getByRole('link', { name: 'GitHub' }).hover();
   await expect(text).toHaveText('OPEN');
 
@@ -145,7 +135,7 @@ test('project dialogs keep a native pointer and page hints resume after closing'
   await opener.click();
   const dialog = page.getByRole('dialog');
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByRole('heading', { name: 'Cohart', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('heading', { name: 'Cohart Study Guide', exact: true })).toBeVisible();
   await expect(page.locator('.creative-cursor')).toHaveCSS('opacity', '0');
 
   const externalLink = dialog.getByRole('link', { name: 'Explore Cohart' });

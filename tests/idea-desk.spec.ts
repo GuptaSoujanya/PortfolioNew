@@ -3,9 +3,9 @@ import { test, expect, type Page } from '@playwright/test';
 test.use({ viewport: { width: 1440, height: 1100 }, reducedMotion: 'no-preference' });
 
 const ideas = [
+  { name: 'Agent evaluation platform', caption: 'Test behavior. Grade evidence. Track cost.', destination: '#wildclaw-heading' },
   { name: 'EvalAgentFlow', caption: 'Eight agents. One clear result.', destination: '#eval-heading' },
   { name: 'Cohart', caption: 'Learn it. Try it. Build it.', destination: '#cohart-heading' },
-  { name: 'Agent-Driven Portfolio', caption: 'An interface shaped by your intent.', destination: '#agui-heading' },
 ];
 
 async function loadDesk(page: Page) {
@@ -13,7 +13,7 @@ async function loadDesk(page: Page) {
   await page.evaluate(() => document.fonts.ready);
   await page.locator('#idea-desk').scrollIntoViewIfNeeded();
   await expect(page.locator('.idea-desk-drawing')).toBeVisible();
-  await expect(page.locator('#desk-status')).toHaveText('EvalAgentFlow drawing complete.', { timeout: 8000 });
+  await expect(page.locator('#desk-status')).toHaveText('Agent evaluation platform drawing complete.', { timeout: 8000 });
   await expect(page.locator('[data-desk-replay]')).toHaveAttribute('aria-busy', 'false');
 }
 
@@ -46,7 +46,7 @@ async function expectCompletedDrawing(page: Page, name: string) {
 test('project selections change the actual sketch, its accessible description, and project link', async ({ page }) => {
   await loadDesk(page);
   await expect(page.locator('.idea-desk-topline')).toContainText('PROJECT NOTES');
-  await expect(page.locator('[data-project-node="agent"]')).toHaveCount(8);
+  await expect(page.locator('[data-project-node="routing"]')).toHaveCount(1);
   let previous = await geometry(page);
 
   for (const index of [1, 2, 0]) {
@@ -60,20 +60,20 @@ test('project selections change the actual sketch, its accessible description, a
     await expect(page.getByRole('link', { name: `Explore ${idea.name}`, exact: true })).toHaveAttribute('href', idea.destination);
     await expect.poll(() => geometry(page), { message: 'Selecting a different project must replace the drawing geometry.' }).not.toEqual(previous);
     await expectCompletedDrawing(page, idea.name);
-    if (index === 0) {
+    if (index === 1) {
       await expect(page.locator('[data-project-node="agent"]')).toHaveCount(8);
       await expect(page.locator('[data-desk-artwork]')).toContainText('Evaluation');
       await expect(page.locator('[data-desk-artwork]')).toContainText('Findings');
-    } else if (index === 1) {
+    } else if (index === 2) {
       await expect(page.locator('[data-project-node="course"]')).toHaveCount(3);
       await expect(page.locator('[data-desk-artwork]')).toContainText('FOUNDATIONS');
       await expect(page.locator('[data-desk-artwork]')).toContainText('PRACTICE');
       await expect(page.locator('[data-desk-artwork]')).toContainText('BUILD');
     } else {
-      for (const kind of ['conversation', 'action', 'interface']) {
+      for (const kind of ['routing', 'environment', 'council']) {
         await expect(page.locator(`[data-project-node="${kind}"]`)).toHaveCount(1);
       }
-      await expect(page.locator('[data-desk-artwork]')).toContainText('Keep it calm.');
+      await expect(page.locator('[data-desk-artwork]')).toContainText('3 judges');
     }
     previous = await geometry(page);
   }
@@ -86,7 +86,7 @@ test('replay draws the selected idea once and finishes with the complete sketch 
 
   await replay.click();
   await expect(replay).toHaveAttribute('aria-busy', 'true');
-  await expect(page.locator('#desk-status')).toHaveText('Drawing EvalAgentFlow.');
+  await expect(page.locator('#desk-status')).toHaveText('Drawing Agent evaluation platform.');
   await expect.poll(() => page.locator('[data-desk-artwork] path').evaluateAll(paths => paths.some(path => {
     const style = getComputedStyle(path);
     return style.strokeDasharray !== 'none' && Math.abs(parseFloat(style.strokeDashoffset)) > .1;
@@ -106,7 +106,7 @@ test('replay draws the selected idea once and finishes with the complete sketch 
     return Math.hypot(point.x - pen.e, point.y - pen.f) < .08 && Math.abs(depth - expectedDepth) < .1;
   }), { message: 'The pen must follow the drawn outline at the correct depth of each solid.' }).toBe(true);
 
-  await expectCompletedDrawing(page, 'EvalAgentFlow');
+  await expectCompletedDrawing(page, ideas[0].name);
   expect(await geometry(page)).toEqual(originalGeometry);
   await expect(page.locator('#desk-caption')).toHaveText(ideas[0].caption);
   const idleChanges = await page.locator('[data-desk-artwork]').evaluate(async svg => {
@@ -143,7 +143,7 @@ test('project panels have real side faces and pointer perspective settles or sto
     face: getComputedStyle(block.querySelector('.solid-face')!).transform,
     style: getComputedStyle(block).transformStyle,
   })));
-  expect(depth).toHaveLength(10);
+  expect(depth).toHaveLength(3);
   depth.forEach(block => {
     expect(block.sides).toBe(4);
     expect(block.style).toBe('preserve-3d');

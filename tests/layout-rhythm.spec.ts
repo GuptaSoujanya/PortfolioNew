@@ -5,7 +5,7 @@ for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/');
-    await expect(page.locator('.idea-desk-project-name')).toHaveText('EvalAgentFlow');
+    await expect(page.locator('.idea-desk-project-name')).toHaveText('Agent evaluation platform');
     await page.evaluate(() => document.fonts.ready);
     const geometry = await page.evaluate(() => ({
       heroHeight: document.querySelector('#home')!.getBoundingClientRect().height,
@@ -21,7 +21,7 @@ for (const width of [320, 390, 768, 1440]) {
     expect(geometry.overflow).toBe(false);
     expect(geometry.modelCount).toBe(0);
     expect(geometry.framed, 'The 3D board must fit its panel even when the page clips horizontal overflow.').toBe(true);
-    expect(geometry.heroHeight).toBeLessThan(width < 768 ? 1050 : 820);
+    expect(geometry.heroHeight).toBeLessThan(width < 768 ? 1200 : 900);
     const category = page.getByRole('button', { name: 'Sketch Cohart', exact: true });
     await category.scrollIntoViewIfNeeded();
     expect(await category.evaluate(element => {

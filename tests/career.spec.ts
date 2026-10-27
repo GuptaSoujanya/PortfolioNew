@@ -3,10 +3,10 @@ import { test, expect, type Page } from '@playwright/test';
 test.use({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'no-preference' });
 
 const chapters = [
-  { company: 'Ethara AI', word: 'connect.', accent: 'rgb(213, 197, 238)', background: 'rgb(48, 43, 55)' },
-  { company: 'Green Rider Technology', word: 'scale.', accent: 'rgb(212, 230, 169)', background: 'rgb(44, 52, 40)' },
-  { company: 'CodeAlpha', word: 'make.', accent: 'rgb(241, 185, 148)', background: 'rgb(58, 46, 39)' },
-  { company: 'Robrotronix India', word: 'begin.', accent: 'rgb(182, 212, 236)', background: 'rgb(41, 52, 60)' },
+  { company: 'Agent evaluation platform', word: 'evaluate.', accent: 'rgb(213, 197, 238)', background: 'rgb(48, 43, 55)' },
+  { company: 'Model & dataset quality', word: 'measure.', accent: 'rgb(212, 230, 169)', background: 'rgb(44, 52, 40)' },
+  { company: 'Frontend platforms', word: 'ship.', accent: 'rgb(241, 185, 148)', background: 'rgb(58, 46, 39)' },
+  { company: 'Robotronix Engineering Tech', word: 'build.', accent: 'rgb(182, 212, 236)', background: 'rgb(41, 52, 60)' },
 ];
 
 async function expectChapter(page: Page, index: number) {
@@ -38,7 +38,7 @@ test('each career chapter changes the selected role, artwork, and visible palett
 
   await page.getByRole('button', { name: 'Explore next career chapter', exact: true }).click();
   await expectChapter(page, 0);
-  await expect(page.locator('.career-live')).toHaveText('Chapter 1 of 4: Ethara AI.');
+  await expect(page.locator('.career-live')).toHaveText('Chapter 1 of 4: Agent evaluation platform.');
 });
 
 test('arrow keys, Home, End, and native summaries keep chapter selection synchronized', async ({ page }) => {
@@ -109,7 +109,7 @@ test('reduced motion switches chapters immediately with readable text and statio
 });
 
 test('rapid chapter changes settle on the final story without leaving content faded', async ({ page }) => {
-  await page.getByRole('button', { name: 'Explore Green Rider Technology chapter', exact: true }).click();
+  await page.getByRole('button', { name: 'Explore Model & dataset quality chapter', exact: true }).click();
 
   // Allow each entry animation to start, then interrupt it with another selection.
   await page.locator('.career-chapter-button').evaluateAll(async elements => {
@@ -120,7 +120,7 @@ test('rapid chapter changes settle on the final story without leaving content fa
   });
 
   await expectChapter(page, 2);
-  await expect(page.locator('.career-live')).toHaveText('Chapter 3 of 4: CodeAlpha.');
+  await expect(page.locator('.career-live')).toHaveText('Chapter 3 of 4: Frontend platforms.');
   for (const selector of ['.career-artwork', '.career-art-word', '.career-takeaway', '#career-role-2 .experience-detail > p']) {
     await expect(page.locator(selector)).toHaveCSS('opacity', '1');
     await expect(page.locator(selector)).toHaveCSS('transform', 'none');
